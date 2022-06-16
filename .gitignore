@@ -3,3 +3,5 @@
 *.ogg
 competition/*
 keys/*
+include/rasa/.rasa
+include/rasa/models

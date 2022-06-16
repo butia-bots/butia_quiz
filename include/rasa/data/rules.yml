@@ -1,0 +1,18 @@
+version: "3.1"
+
+rules:
+
+- rule: Answer personal questions
+  steps:
+    - intent: personal_question
+    - action: utter_personal_question
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot

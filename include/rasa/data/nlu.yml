@@ -1,0 +1,252 @@
+version: "3.1"
+
+nlu:
+- lookup: category
+  examples: |
+    - candies
+    - cleaning stuff
+    - drinks
+    - food
+    - fruits
+    - snacks
+    - containers
+    - cutlery
+    - tableware
+- lookup: gesture
+  examples: |
+    - waving
+    - raising their left arm
+    - raising their right arm
+    - pointing to the left
+    - pointing to the right
+- lookup: location
+  examples: |
+    - bed
+    - bedroom chest
+    - sidetable
+    - shelf
+    - shoe rack
+    - safe
+    - desk
+    - coat hanger
+    - sideboard
+    - couch
+    - coffee table
+    - armchair
+    - display cabinet
+    - TV
+    - fridge
+    - dishwasher
+    - sink
+    - kitchen table
+    - kitchen cabinet
+    - island
+- lookup: name
+  examples: |
+    - Amelia
+    - Angel
+    - Ava
+    - Charlie
+    - Charlotte
+    - Hunter
+    - Max
+    - Mia
+    - Olivia
+    - Parker
+    - Sam
+    - Jack
+    - Noah
+    - Oliver
+    - Thomas
+    - William
+- lookup: object
+  examples: |
+    - biscuit
+    - frosty fruits
+    - snakes
+    - cloth
+    - dishwasher tab
+    - sponge
+    - trash bags
+    - beer
+    - chocolate milk
+    - coke
+    - juice
+    - lemonade
+    - tea bag
+    - water
+    - carrot
+    - cereals
+    - noodles
+    - onion
+    - vegemite
+    - apple
+    - kiwi
+    - lemon
+    - orange
+    - pear
+    - cheetos
+    - doritos
+    - shapes chicken
+    - shapes pizza
+    - twisties
+    - tray
+    - basket
+    - bag
+    - fork
+    - knive
+    - spoon
+    - dish
+    - bowl
+    - cup
+- lookup: command
+  examples: |
+    - take
+    - bring
+    - pick
+    - place
+    - put
+    - give
+
+- intent: manipulation
+  examples: |
+    - [take](command) the [biscuit](object) from the [desk](location) and [put](command) it on the [cofee table](location)
+    - [bring](command) me the [spoon](object) from the [dishwasher](location)
+    - [take](command) the [bowl](object) from [Hunter](name) and [deliver](command) it to me
+    - [take](command) the [apple](object) from the [dishwasher](location) and [place](command) it on the [desk](location)
+    - [take](command) the [apple](object) from [Hunter](name) and [place](command) it on the [desk](location)
+- intent: personal_question/creator
+  examples: |
+    - what did the robot call its creator?
+- intent: personal_question/run
+  examples: |
+    - why did you run away?
+- intent: personal_question/salad
+  examples: |
+    - what kind of salad do robots like?
+- intent: personal_question/lunch
+  examples: |
+    - what did you eat for lunch?
+- intent: personal_question/music
+  examples: |
+    - what's your favorite style of music?
+- intent: personal_question/capital
+  examples: |
+    - what is the capital of Rio Grande do Sul?
+- intent: personal_question/angry
+  examples: |
+    - why did robots get angry so often?
+- intent: personal_question/r2d2
+  examples: |
+    - why shouldn't r2d2 be allowed in movies?
+- intent: personal_question/name
+  examples: |
+    - what's your name?
+- intent: personal_question/oxford_comma
+  examples: |
+    - what is an oxford comma?
+- intent: personal_question/modulus_c
+  examples: |
+    - what is the symbol for the modulus operator in C?
+- intent: personal_question/zuckerberg
+  examples: |
+    - is mark zuckerberg a robot?
+- intent: personal_question/equator
+  examples: |
+    - what is the only capital of Brazil crossed by the Equator?
+- intent: personal_question/same_capital
+  examples: |
+    - which capitals in Brazil have the same name as your state?
+- intent: personal_question/urban_elevator
+  examples: |
+    - in which city is the world's first urban elevator and what is the name of that elevator?
+
+
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?

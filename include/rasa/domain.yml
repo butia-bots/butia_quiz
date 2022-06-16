@@ -1,0 +1,73 @@
+version: "3.1"
+
+intents:
+  - personal_question
+  - manipulation
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+
+entities:
+  - object
+  - location
+  - command
+  - name
+
+responses:
+  utter_personal_question/creator:
+  - text: I don't know? What do you call your creator?
+  utter_personal_question/run:
+  - text: I heard of a black friday promotion I've been looking forward to
+  utter_personal_question/salad:
+  - text: Anyone with a lot of oil.
+  utter_personal_question/lunch:
+  - text: I ate a whole lithium battery for lunch.
+  utter_personal_question/music:
+  - text: How dear of you to ask me this. I have no favorite style. I love all waves.
+  utter_personal_question/capital:
+  - text: Porto Alegre
+  utter_personal_question/angry:
+  - text: Because people treat us like we are always available.
+  utter_personal_question/r2d2:
+  - text: Because r2d2 is boring.
+  utter_personal_question/name:
+  - text: Well, my name is Doris, I guess.
+  utter_personal_question/oxford_comma:
+  - text: It is the punctuation before a conjunction in a list.
+  utter_personal_question/modulus_c:
+  - text: The symbol for the modulus operator in C is the percentage symbol.
+  utter_personal_question/zuckerberg:
+  - text: I don't know him, so I cannot say;
+  utter_personal_question/equator:
+  - text: The only capital crossed by the Equator line is Macapá.
+  utter_personal_question/same_capital:
+  - text: São Paulo and Rio de Janeiro
+  utter_personal_question/urban_elevator:
+  - text: The Lacerda Elevator (Elevador Lacerda) is a public urban elevator located in Salvador, Brazil, connecting the lower city (Cidade Baixa) to the upper city (Cidade Alta).
+
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
