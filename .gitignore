@@ -5,3 +5,7 @@ competition/*
 keys/*
 include/rasa/.rasa
 include/rasa/models
+__pycache__
+models/*
+include/rasa/output
+include/rasa/data/nlu-generated.yml

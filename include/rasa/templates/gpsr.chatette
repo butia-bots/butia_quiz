@@ -1,0 +1,33 @@
+%[&manipulation]('train': '80', 'test': '20')
+    ~[polite?] ~[manipulation-atom] and ~[polite?] ~[manipulation-atom]
+    ~[polite?] ~[manipulation-atom]
+    ~[polite?] ~[navigation-atom] and ~[polite?] ~[manipulation-atom]
+    ~[polite?] ~[navigation-atom], ~[polite?] ~[find-object-atom] and ~[polite?] ~[manipulation-atom]
+
+%[&find-people]('train': '80', 'test': '20')
+    ~[polite?] ~[talk-atom] to ~[whowhere]
+    ~[polite?] ~[find-people-atom] in the ~[locations] and ~[talk-atom]
+    ~[polite?] ~[navigation-atom], ~[find-people-atom], and ~[talk-atom]
+
+%[&find-object]('train': '80', 'test': '20')
+    tell me how many ~[objects] the are in the ~[locations]
+    ~[find-object-atom] in the ~[locations]
+
+%[&follow-people]('train': '80', 'test': '20')
+    @[follow-commands] ~[names] from the ~[locations] to the ~[locations]
+    meet ~[names] at the ~[locations] and @[follow-commands] they to the ~[locations]
+    ~[navigation-atom], meet ~[names], and @[follow-commands] they to the ~[locations]
+
+%[&guide-people]('train': '80', 'test': '20')
+    @[guide-commands] ~[names] from the ~[locations] to the ~[locations]
+    meet ~[names] at the ~[locations] and @[guide-commands] they to the ~[locations]
+    ~[navigation-atom], meet ~[names], and @[guide-commands] they to the ~[locations]
+    @[guide-commands] ~[names] to the ~[locations], you may find they at the ~[locations]
+    @[guide-commands] ~[names] to the ~[locations], you can find they at the ~[locations]
+    @[guide-commands] ~[names] to the ~[locations], you will find they at the ~[locations]
+
+|slots/locations.chatette
+|slots/names.chatette
+|slots/objects.chatette
+|slots/commands.chatette
+|aliases.chatette

@@ -1,0 +1,55 @@
+@[candies-objects]
+    biscuit
+    frosty fruits
+    snakes
+
+@[cleaning-stuff-objects]
+    cloth
+    dishwasher tab
+    sponge
+    trash bags
+
+@[drinks-objects]
+    beer
+    chocolate milk
+    coke
+    juice
+    lemonade
+    tea bag
+    water
+
+@[food-objects]
+    carrot
+    cereals
+    noodles
+    onion
+    vegemite
+
+@[fruits-objects]
+    apple
+    kiwi
+    lemon
+    orange
+    pear
+
+@[snacks-objects]
+    cheetos
+    doritos
+    shapes chicken
+    shapes pizza
+    twisties
+
+@[containers-objects]
+    tray
+    basket
+    bag
+
+@[cutlery-objects]
+    fork
+    knife
+    spoon
+
+@[tableware-objects]
+    dish
+    bowl
+    cup

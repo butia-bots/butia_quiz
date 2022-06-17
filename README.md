@@ -15,6 +15,9 @@ pip3 install pydub
 pip3 install nltk
 pip3 install wolframalpha
 pip3 install python-Levenshtein
+pip3 install rasa[spacy]
+python3 -m spacy download en_core_web_md
+pip3 install chatette
 
 ~~~
 
@@ -43,3 +46,29 @@ nltk.download('punkt')
 
 Essas duas linhas estão comentadas no arquivo pseudo_nlp.py. Se você encontrar algum erro relacionado aos termos 'stopwords' e 'punkt', experimente descomentá-las e rodar novamente.
 
+# Treinando um modelo Rasa
+---------
+Primeiramente, entre na pasta include/rasa.
+
+~~~
+cd include/rasa
+~~~
+
+Gere um dataset de comandos para a GPSR:
+
+~~~
+python3 -m chatette templates/gpsr.chatette
+rasa data convert nlu --data=output --out=data/nlu-generated.yml
+~~~
+
+Treine um modelo Rasa:
+
+~~~
+rasa train
+~~~
+
+Levante um servidor Rasa com a API REST ativada:
+
+~~~
+rasa run --enable-api
+~~~

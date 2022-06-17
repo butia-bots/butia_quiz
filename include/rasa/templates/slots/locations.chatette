@@ -1,0 +1,27 @@
+@[bedroom-locations]
+    bed
+    bedroom chest
+    sidetable
+    shelf
+
+@[office-locations]
+    shoe rack
+    safe
+    desk
+    coat hanger
+
+@[living-room-locations]
+    sideboard
+    couch
+    coffee table
+    armchair
+    display cabinet
+    TV
+
+@[kitchen-locations]
+    fridge
+    dishwasher
+    sink
+    kitchen table
+    kitchen cabinet
+    island

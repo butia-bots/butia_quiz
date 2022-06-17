@@ -1,0 +1,43 @@
+@[pick-commands]
+    pick up
+    grab
+    take
+    get
+
+@[place-commands]
+    place
+    put
+    leave
+
+@[handle-commands]
+    give
+    handle
+    deliver
+    bring
+
+@[navigate-commands]
+    go
+    move
+    navigate
+    enter
+
+@[speak-commands]
+    tell
+    say
+    speak
+    talk
+
+@[find-commands]
+    find
+    locate
+    look for
+
+@[guide-commands]
+    guide
+    escort
+    take
+    lead
+    accompany
+
+@[follow-commands]
+    follow

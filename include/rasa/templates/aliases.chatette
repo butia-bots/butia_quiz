@@ -1,0 +1,67 @@
+~[objects]
+    @[candies-objects]
+    @[cleaning-stuff-objects]
+    @[drinks-objects]
+    @[food-objects]
+    @[fruits-objects]
+    @[snacks-objects]
+    @[containers-objects]
+    @[cutlery-objects]
+    @[tableware-objects]
+
+~[locations]
+    @[bedroom-locations]
+    @[kitchen-locations]
+    @[living-room-locations]
+    @[office-locations]
+
+~[names]
+    @[female-names]
+    @[male-names]
+
+~[manipulation-atom]
+    @[pick-commands] the ~[objects]
+    @[pick-commands] the ~[objects] from the ~[locations]
+    @[place-commands] the ~[objects] on the ~[locations]
+    @[handle-commands] the ~[objects] to ~[names]
+    @[pick-commands] the ~[objects] from ~[names]
+
+~[navigation-atom]
+    @[navigate-commands] to the ~[locations]
+
+~[find-object-atom]
+    @[find-commands] the ~[objects]
+
+~[find-people-atom]
+    @[find-commands] the ~[names]
+
+~[talk-atom]
+    @[speak-commands] ~[whattosay]
+
+~[robot]
+    robot
+    doris
+
+~[whowhere]
+    ~[names] in the ~[locations]
+
+~[whattosay]
+    something about yourself
+    the time
+    what day is today
+    what day is tomorrow
+    your team's name
+    your team's country
+    your team's affiliation
+    the day of the week
+    the day of the month
+    a joke
+
+~[polite]
+    ~[robot?] could you
+    ~[robot?] please
+    ~[robot?] would you
+    ~[robot?] please, could you
+    ~[robot?] could you please
+    ~[robot?] would you please
+    ~[robot?] please, would you
