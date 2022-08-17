@@ -1,0 +1,15 @@
+# Publisher and Subscriber to future work with topics
+publishers:
+
+  butia_quiz:
+    topic: "/butia_quiz/bq/answer"
+
+subscribers:
+
+  butia_quiz:
+    topic: "/butia_quiz/bq/question"
+
+servers:
+
+  butia_quiz:
+    service: "/butia_quiz/bq/question"

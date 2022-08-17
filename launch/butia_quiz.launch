@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<launch>
+
+    <rosparam file="$(find butia_quiz)/config/ros.yaml" command="load"/>
+    
+    <arg name="output" default="screen"/>
+    <arg name="file" default="$(find butia_quiz)/resources/larc_2022_questions.txt"/>
+
+    <node name="quiz" pkg="butia_quiz" type="quiz.py">
+        <param name="file" value="$(arg file)" />
+    </node>
+
+</launch>
