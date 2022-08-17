@@ -7,15 +7,17 @@ Primeiramente você precisa seguir o tutorial de cloud da google disponível [aq
 
 `export GOOGLE_APPLICATION_CREDENTIALS="caminho_para_suas_credenciais"`
 
-Antes de executar a primeira vez, execute o seguinte código: 
+Antes de executar a primeira vez, no ubuntu, execute o seguinte comando: 
 
 ~~~
-sudo apt install ffmpeg
+<!-- sudo apt install ffmpeg
 pip3 install pydub
 pip3 install nltk
 pip3 install wolframalpha
-pip3 install python-Levenshtein
+pip3 install python-Levenshtein -->
 
+chmod +x install.sh
+sudo ./install.sh
 ~~~
 
 ## Execução
