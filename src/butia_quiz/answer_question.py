@@ -1,15 +1,18 @@
 import rospy
 
+from butia_quiz.nlp import NLP
+
 class AnswerQuestion():
 
     def __init__(self, filepath: str):
         self.filepath = filepath
 
-        self.file = open(self.filepath, "r")
+        self.nlp = NLP(self.filepath)
 
     def getAnswer(self, question):
         answer = ""
 
-        """ Faz a busca no arquivo """
+        question = question.lower()
+        self.nlp.find_question(question)
 
         return answer
