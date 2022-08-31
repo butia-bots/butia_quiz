@@ -1,4 +1,0 @@
-pydub
-nltk
-wolframalpha
-python-Levenshtein

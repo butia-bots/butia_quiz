@@ -1,3 +1,9 @@
+# To install ffmpeg library
+echo("Installing ffmpeg library...")
 sudo apt install ffmpeg
-pip3 install -r installationFiles/requirements.txt
-python3 installationFiles/nltk_download_packages.py
+echo("Done...")
+
+# To install necessary libraries to run the package
+echo("Installing python libraries...")
+pip3 install -r requirements.txt
+echo("Done...")
