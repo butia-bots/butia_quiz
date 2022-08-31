@@ -1,4 +1,3 @@
 string question
 ---
 string answer
-std_msgs/Bool success
