@@ -1,6 +1,6 @@
 # To install ffmpeg library
 echo("Installing ffmpeg library...")
-sudo apt install ffmpeg
+apt install ffmpeg
 echo("Done...")
 
 # To install necessary libraries to run the package

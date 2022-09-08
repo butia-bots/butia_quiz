@@ -1,47 +1,37 @@
-## Instalação
-----------
+# BUTIA_QUIZ
 
-Primeiramente você precisa seguir o tutorial de cloud da google disponível [aqui](https://cloud.google.com/speech-to-text/docs/quickstart-client-libraries).
+Definition
 
-**Importante:** toda vez que abrir um novo terminal você precisará rodar o seguinte comando: 
+----
+## Installation
 
-`export GOOGLE_APPLICATION_CREDENTIALS="caminho_para_suas_credenciais"`
-
-Antes de executar a primeira vez, no ubuntu, execute o seguinte comando: 
-
+In catkin_ws/src
 ~~~
-<!-- sudo apt install ffmpeg
-pip3 install pydub
-pip3 install nltk
-pip3 install wolframalpha
-pip3 install python-Levenshtein -->
-
-chmod +x install.sh
-sudo ./install.sh
+$ git clone https://github.com/butia-bots/butia_quiz.git
+$ cd butia_quiz
+$ sudo ./install.sh
 ~~~
 
-## Execução
-----------
-Para executar o sistema, basta instalar todos os requirements e rodar:
+----
+## Files
 
-~~~
-python3 quiz.py -f 'nomedoarquivo'
-~~~
 
-Em 'nomedoarquivo', você deve informar o path para o arquivo de áudio (.mp3 ou .wav).
-Na sua tela aparecerão a pergunta, extraída do áudio, e a resposta.
+- config/ros.yaml
 
-Para testar apenas a resolução das perguntas, sem o STT, você pode rodar python3 search.py.
-Ele gerará as respostas para todas as perguntas da competição.
+    This file present the services, topics and subscribers name used in this package.
 
-# Alguns problemas frequentes
----------
-Talvez você precise executar os seguintes comandos:
+- launch/butia_quiz.launch
 
-~~~
-nltk.download('stopwords')
-nltk.download('punkt')
-~~~
+    This file allow run the butia quiz node.
 
-Essas duas linhas estão comentadas no arquivo pseudo_nlp.py. Se você encontrar algum erro relacionado aos termos 'stopwords' e 'punkt', experimente descomentá-las e rodar novamente.
+- nodes/
 
+    This directory contains all nodes created in butia quiz package.
+
+- resources/
+
+    This directory contains files with questions ans answer of the competitions.
+
+- srv/
+  
+    This directory contains the services os butia quiz package.
