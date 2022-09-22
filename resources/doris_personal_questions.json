@@ -26,14 +26,12 @@
             "question_array": ["favorite", "style", "music"]
         },
         {
-            "question": "What is the capital of Rio Grande do Sul?",
-            "answer": "Porto Alegre",
+            "question": "What is the capital of Brazil?",
+            "answer": "The capital of Brazil is Brasilia",
             "question_array": [
                 "What",
                 "capital",
-                "Rio",
-                "Grande",
-                "Sul"
+                "Brazil"
             ]
         },
         {
