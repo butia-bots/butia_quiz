@@ -87,6 +87,44 @@
                 "name",
                 "elevator"
             ]
+        },
+        {
+            "question": "What is the capital of Brazil?",
+            "answer":"Brasília",
+            "question_array": [
+                "What",
+                "capital",
+                "Brazil"
+            ]
+        },
+        {
+            "question": "Who is the president of Brazil?",
+            "answer":"Luis Inácio Lula da Silva",
+            "question_array": [
+                "Who",
+                "President",
+                "Brazil"
+            ]
+        },
+        {
+            "question": "what's your favorite style of music?",
+            "answer": "I love funk",
+            "question_array": [
+                "favorite",
+                "style",
+                "music"
+            ]
+        },
+        {
+            "question": "What is the capital of Rio Grande do Sul?",
+            "answer":"Porto Alegre",
+            "question_array": [
+                "What",
+                "capital",
+                "Rio",
+                "Grande",
+                "Sul"
+            ]
         }
     ]
 }

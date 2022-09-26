@@ -64,13 +64,15 @@ def answer_question(req):
         all_questions = json.load(json_file)["questions"]
 
     question = req.question
+    rospy.loginfo(f"Listened question: {question}")
     # Find answer in questions file
     question_obj = find_question(question, all_questions)
+    rospy.loginfo(f"Recognized question: {question_obj}")
     if question_obj["question"] == "":
         answer = "I don't understand your question."
     else:
         answer = question_obj["answer"]
-    
+    rospy.loginfo(f"Question answer: {answer}")
     response = ButiaQuizCommResponse()
     response.answer = answer
     return response
