@@ -9,7 +9,7 @@ import string
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from Levenshtein import distance
-
+    
 PACKAGE_DIR = rospkg.RosPack().get_path("butia_quiz")
 DORIS_PERSONAL_QUESTIONS_FILEPATH = os.path.join(PACKAGE_DIR, "resources/doris_personal_questions.json")
 
@@ -64,15 +64,17 @@ def answer_question(req):
         all_questions = json.load(json_file)["questions"]
 
     question = req.question
-    rospy.loginfo(f"Listened question: {question}")
+    rospy.loginfo("---------------------")
+    rospy.loginfo(f"Question: {question}")
     # Find answer in questions file
     question_obj = find_question(question, all_questions)
-    rospy.loginfo(f"Recognized question: {question_obj}")
+    rospy.loginfo(f"Processed question: {question_obj['question']}")
     if question_obj["question"] == "":
         answer = "I don't understand your question."
     else:
         answer = question_obj["answer"]
-    rospy.loginfo(f"Question answer: {answer}")
+    rospy.loginfo(f"Answer: {answer}")
+    rospy.loginfo("---------------------")
     response = ButiaQuizCommResponse()
     response.answer = answer
     return response
