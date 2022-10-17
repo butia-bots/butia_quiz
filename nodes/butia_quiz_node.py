@@ -11,7 +11,7 @@ from nltk.corpus import stopwords
 from Levenshtein import distance
     
 PACKAGE_DIR = rospkg.RosPack().get_path("butia_quiz")
-DORIS_PERSONAL_QUESTIONS_FILEPATH = os.path.join(PACKAGE_DIR, "resources/doris_personal_questions.json")
+DORIS_PERSONAL_QUESTIONS_FILEPATH = os.path.join(PACKAGE_DIR, "resources/larc_2022_questions.json")
 
 def merge_question_array(question_array):
     question = ''
