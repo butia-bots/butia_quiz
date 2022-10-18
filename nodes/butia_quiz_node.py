@@ -52,8 +52,8 @@ def find_question(question: str, questions):
         if l_distances[i]['distance'] < min_distance['distance']:
             min_distance = l_distances[i]
     
-    if min_distance['distance'] > 5:
-        return {'question': '', 'question_array': []}
+    # if min_distance['distance'] > 5:
+    #     return {'question': '', 'question_array': []}
 
     question_obj = questions[min_distance['index']]
 
@@ -75,6 +75,7 @@ def answer_question(req):
         answer = question_obj["answer"]
     rospy.loginfo(f"Answer: {answer}")
     rospy.loginfo("---------------------")
+
     response = ButiaQuizCommResponse()
     response.answer = answer
     return response
