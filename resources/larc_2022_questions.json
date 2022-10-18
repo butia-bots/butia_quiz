@@ -197,7 +197,7 @@
         },
         {
             "question": "What's your name?",
-            "answer": "Well, my name is Doris, I guess.",
+            "answer": "Well, my name is Doris.",
             "question_array": [
                 "What",
                 "name"
@@ -360,7 +360,7 @@
         },
         {
             "question": "Pampulha Lake is a tourist spot in which Brazilian city?",
-            "answer": "Belo Horizonte",
+            "answer": "It is a tourist spot in Belo Horizonte",
             "question_array": [
                 "Pampulha",
                 "Lake",
@@ -372,7 +372,7 @@
         },
         {
             "question": "What is the smallest Brazilian state in territorial extension?",
-            "answer": "Sergipe",
+            "answer": "The smallest Brazilian state is Sergipe",
             "question_array": [
                 "What",
                 "smallest",
@@ -395,7 +395,7 @@
         },
         {
             "question": "Where is the Itamaraty Palace located?",
-            "answer": "Brasilia",
+            "answer": "The Itamarachi Palace is located in Brasilia",
             "question_array": [
                 "Where",
                 "Itamaraty",
@@ -405,7 +405,7 @@
         },
         {
             "question": "What was the first name given to Brazil by the Portuguese?",
-            "answer": "Ilha de Vera Cruz",
+            "answer": "The first name was Ilha de Vera Cruz",
             "question_array": [
                 "What",
                 "first",
@@ -417,7 +417,7 @@
         },
         {
             "question": "What is the Newest State in Brazil?",
-            "answer": "Tocantins",
+            "answer": "The newest state in Brazil is Tocantins",
             "question_array": [
                 "What",
                 "Newest",
@@ -427,7 +427,7 @@
         },
         {
             "question": "What is the oldest state in Brazil?",
-            "answer": "Pernambuco",
+            "answer": "The oldest state in Brazil is Pernambuco",
             "question_array": [
                 "What",
                 "oldest",
@@ -437,7 +437,7 @@
         },
         {
             "question": "What is the capital of Ceara?",
-            "answer": "Fortaleza",
+            "answer": "The capital of Ceara is Fortaleza",
             "question_array": [
                 "What",
                 "capital",
@@ -447,7 +447,7 @@
         },
         {
             "question": "What is the capital of Rio Grande do Sul?",
-            "answer": "Porto Alegre",
+            "answer": "The capital is Porto Alegre",
             "question_array": [
                 "What",
                 "capital",
@@ -458,7 +458,7 @@
         },
         {
             "question": "What is the capital of Rio Grande do Norte?",
-            "answer": "Natal",
+            "answer": "The capital is Natal",
             "question_array": [
                 "What",
                 "capital",
@@ -469,7 +469,7 @@
         },
         {
             "question": "What is the capital of Brazil?",
-            "answer": "Brasilia",
+            "answer": "The capital of Brazil is Brasilia",
             "question_array": [
                 "What",
                 "capital",
@@ -478,7 +478,7 @@
         },
         {
             "question": "What is the capital of Pernambuco?",
-            "answer": "Recife",
+            "answer": "The capital of Pernambuco is Recife",
             "question_array": [
                 "What",
                 "capital",
@@ -487,7 +487,7 @@
         },
         {
             "question": "What is the capital of Para?",
-            "answer": "Belem",
+            "answer": "The capital of Para is Belem",
             "question_array": [
                 "What",
                 "capital",
@@ -594,7 +594,7 @@
         },
         {
             "question": "Who founded the FEI?",
-            "answer": "Padre Saboia de Medeiros",
+            "answer": "Priest Saboia de Medeiros",
             "question_array": [
                 "Who",
                 "founded",
