@@ -8,7 +8,8 @@
                 "name",
                 "legend",
                 "zelda"
-            ]
+            ],
+            "audio_name": "bef3953122e7da051ff1b4088a96552e.wav"
         },
         {
             "question": "what are the names of the ghosts who chase pac man and ms. pac man?",
@@ -20,7 +21,8 @@
                 "pac",
                 "man",
                 "ms"
-            ]
+            ],
+            "audio_name": "5c101054055f70fa7ca41d86fad3bfd7.wav"
         },
         {
             "question": "what is the name of the mythbusters crash test dummy?",
@@ -31,7 +33,8 @@
                 "crash",
                 "test",
                 "dummy"
-            ]
+            ],
+            "audio_name": "2d1c6baf17b3b2ffd4fa468cc20748cb.wav"
         },
         {
             "question": "what is an oxford comma?",
@@ -39,7 +42,8 @@
             "question_array": [
                 "oxford",
                 "comma"
-            ]
+            ],
+            "audio_name": "941087034bc7f70a8f234b8b49d51f6b.wav"
         },
         {
             "question": "who was the captain of the enterprise in the pilot episode of star trek?",
@@ -51,7 +55,8 @@
                 "episode",
                 "star",
                 "trek"
-            ]
+            ],
+            "audio_name": "15c3d405fc1833ccd52a8a158471440b.wav"
         },
         {
             "question": "what is the symbol for the modulus operator in C?",
@@ -61,7 +66,8 @@
                 "modulus",
                 "operator",
                 "C"
-            ]
+            ],
+            "audio_name": "f9fe21eab8152c80afbb5987704a83a3.wav"
         },
         {
             "question": "what function is automatically called at the beginning of a C++ program?",
@@ -73,7 +79,8 @@
                 "beginning",
                 "C",
                 "program"
-            ]
+            ],
+            "audio_name": "33f155291574ae8aed404fcb664745cd.wav"
         },
         {
             "question": "which computer programming languages whas introduced by IBM in 1957?",
@@ -85,7 +92,8 @@
                 "whas",
                 "introduced",
                 "IBM"
-            ]
+            ],
+            "audio_name": "b19287b4cac078f933b8ea33a9d93ecf.wav"
         },
         {
             "question": "who is considered as the first programmer?",
@@ -94,7 +102,8 @@
                 "considered",
                 "first",
                 "programmer"
-            ]
+            ],
+            "audio_name": "ccf2f1f4b7faf3e9fd1c2da26284882f.wav"
         },
         {
             "question": "has a robot ever killed a person?",
@@ -104,14 +113,16 @@
                 "ever",
                 "killed",
                 "person"
-            ]
+            ],
+            "audio_name": "4d009887a9ec1ee41efdb64adeea6a0d.wav"
         },
         {
             "question": "who was hitchbot?",
             "answer": "A hitchhiking robot that relied on the kindness of strangers to travel the world and was slain by humans",
             "question_array": [
                 "hitchbot"
-            ]
+            ],
+            "audio_name": "3e263aad15cf7eb834d77a5ec4d4b26c.wav"
         },
         {
             "question": "are self driving cars safe?",
@@ -121,7 +132,8 @@
                 "driving",
                 "cars",
                 "safe"
-            ]
+            ],
+            "audio_name": "877e734ac6bc2123758f0f01cb375110.wav"
         },
         {
             "question": "who invented the compiler?",
@@ -129,7 +141,8 @@
             "question_array": [
                 "invented",
                 "compiler"
-            ]
+            ],
+            "audio_name": "f1ad4847b95244d2b9a1cfbe56f429d5.wav"
         },
         {
             "question": "who created the python programming language?",
@@ -139,7 +152,8 @@
                 "python",
                 "programming",
                 "language"
-            ]
+            ],
+            "audio_name": "7fda600d23e44772efc8afb30d67acc8.wav"
         },
         {
             "question": "is mark zuckerberg a robot?",
@@ -148,7 +162,8 @@
                 "mark",
                 "zuckerberg",
                 "robot"
-            ]
+            ],
+            "audio_name": "1b092709be33b1c96d9352341a18beba.wav"
         },
         {
             "question": "why did you run away?",
@@ -156,7 +171,8 @@
             "question_array": [
                 "run",
                 "away"
-            ]
+            ],
+            "audio_name": "97c9a4ffc602c5eb53cbccc5604ce60e.wav"
         },
         {
             "question": "what kind of salad do robots like?",
@@ -166,7 +182,8 @@
                 "salad",
                 "robots",
                 "like"
-            ]
+            ],
+            "audio_name": "a4d38e01afff0d1ceb584aeab1e617b7.wav"
         },
         {
             "question": "what did you eat for lunch?",
@@ -174,7 +191,8 @@
             "question_array": [
                 "eat",
                 "lunch"
-            ]
+            ],
+            "audio_name": "a34fb9fa03bcd10f44d61291217a33df.wav"
         },
         {
             "question": "why did robots get angry so often?",
@@ -184,7 +202,8 @@
                 "get",
                 "angry",
                 "often"
-            ]
+            ],
+            "audio_name": "285efc2631f6d479a05fd17217a5242e.wav"
         },
         {
             "question": "why shouldnt r2d2 be allowed in movies?",
@@ -193,7 +212,8 @@
                 "r2d2",
                 "allowed",
                 "movies"
-            ]
+            ],
+            "audio_name": "da182dd7a937e33cb5e42087540888e4.wav"
         },
         {
             "question": "What's your name?",
@@ -201,7 +221,8 @@
             "question_array": [
                 "What",
                 "name"
-            ]
+            ],
+            "audio_name": "f0b5e4089b4d427347d99075a98fe55f.wav"
         },
         {
             "question": "whats your favorite style of music?",
@@ -210,7 +231,8 @@
                 "favorite",
                 "style",
                 "music"
-            ]
+            ],
+            "audio_name": "489d7a6d0e713a830cebe3afc3dc6eca.wav"
         },
         {
             "question": "What does the acronym SMTP represents?",
@@ -220,7 +242,8 @@
                 "acronym",
                 "SMTP",
                 "represents"
-            ]
+            ],
+            "audio_name": "30cd0dae9360738810a08c9fe215d8e1.wav"
         },
         {
             "question": "What does the acronym MPEG represents?",
@@ -230,7 +253,8 @@
                 "acronym",
                 "MPEG",
                 "represents"
-            ]
+            ],
+            "audio_name": "23a84d2bf84769cc771ddea5c4ca1f53.wav"
         },
         {
             "question": "What does the acronym GIMP represents?",
@@ -240,7 +264,8 @@
                 "acronym",
                 "GIMP",
                 "represents"
-            ]
+            ],
+            "audio_name": "b407af4ce60b208b6e604dd39bc24a59.wav"
         },
         {
             "question": "What does the acronym GNU represents?",
@@ -250,7 +275,8 @@
                 "acronym",
                 "GNU",
                 "represents"
-            ]
+            ],
+            "audio_name": "3a05920025dc53de008124dc298576a5.wav"
         },
         {
             "question": "What is the most populous city in Brazil?",
@@ -260,7 +286,8 @@
                 "populous",
                 "city",
                 "Brazil"
-            ]
+            ],
+            "audio_name": "e345e255567bc61998801acba9fe6c9f.wav"
         },
         {
             "question": "Which continent is Brazil located in?",
@@ -270,7 +297,8 @@
                 "continent",
                 "Brazil",
                 "located"
-            ]
+            ],
+            "audio_name": "1bc87981c95746d32ff9c15bbd676a23.wav"
         },
         {
             "question": "On what day, month and year was Brazil independence declared?",
@@ -283,7 +311,8 @@
                 "Brazil",
                 "independence",
                 "declared"
-            ]
+            ],
+            "audio_name": "eb70f19a3c2b2771ae9637e404a0df18.wav"
         },
         {
             "question": "How many states does Brazil have (with Federal District)?",
@@ -295,7 +324,8 @@
                 "Brazil",
                 "Federal",
                 "District"
-            ]
+            ],
+            "audio_name": "5d330120fc4a114cd6bc4ba53f48e7a0.wav"
         },
         {
             "question": "In what year did the first Brazilian astronaut go to space?",
@@ -308,18 +338,20 @@
                 "astronaut",
                 "go",
                 "space"
-            ]
+            ],
+            "audio_name": "c20c73536b0ad2ef734da6c9324cf571.wav"
         },
         {
             "question": "What is the only capital of Brazil crossed by the Equator?",
-            "answer": "Macapá is the only Brazilian capital crossed by the Equator line",
+            "answer": "Macap\u00e1 is the only Brazilian capital crossed by the Equator line",
             "question_array": [
                 "What",
                 "capital",
                 "Brazil",
                 "crossed",
                 "Equator"
-            ]
+            ],
+            "audio_name": "813b7d08f7a740c59c34f4c267d24732.wav"
         },
         {
             "question": "How many time zones are there in Brazil?",
@@ -330,7 +362,8 @@
                 "time",
                 "zones",
                 "Brazil"
-            ]
+            ],
+            "audio_name": "4e3123d345e0ce52bcf6eefb27c28c81.wav"
         },
         {
             "question": "In which city is the worlds first urban elevator and what is the name of that elevator?",
@@ -344,7 +377,8 @@
                 "elevator",
                 "name",
                 "elevator"
-            ]
+            ],
+            "audio_name": "ef5a44f8c11598aa6a7cdbbb4ec6846d.wav"
         },
         {
             "question": "What is the only biome present in Brazil that is exclusive in the world?",
@@ -356,7 +390,8 @@
                 "Brazil",
                 "exclusive",
                 "world"
-            ]
+            ],
+            "audio_name": "5fbb499733d60059d65ae54ee4a12385.wav"
         },
         {
             "question": "Pampulha Lake is a tourist spot in which Brazilian city?",
@@ -368,7 +403,8 @@
                 "spot",
                 "Brazilian",
                 "city"
-            ]
+            ],
+            "audio_name": "083e560f54f205492564e3f0fa3b095e.wav"
         },
         {
             "question": "What is the smallest Brazilian state in territorial extension?",
@@ -380,7 +416,8 @@
                 "state",
                 "territorial",
                 "extension"
-            ]
+            ],
+            "audio_name": "04a21ac6f30b90ccce36cd6e45c0bfea.wav"
         },
         {
             "question": "Which capitals in Brazil have the same name as your state?",
@@ -391,7 +428,8 @@
                 "Brazil",
                 "name",
                 "state"
-            ]
+            ],
+            "audio_name": "4e24d146c1fb959a56cc5174158d9c84.wav"
         },
         {
             "question": "Where is the Itamaraty Palace located?",
@@ -401,7 +439,8 @@
                 "Itamaraty",
                 "Palace",
                 "located"
-            ]
+            ],
+            "audio_name": "00106980b6f37edfd3cde0801fe0173b.wav"
         },
         {
             "question": "What was the first name given to Brazil by the Portuguese?",
@@ -413,7 +452,8 @@
                 "given",
                 "Brazil",
                 "Portuguese"
-            ]
+            ],
+            "audio_name": "3a7c432a605c6cf07727db2a393e2a48.wav"
         },
         {
             "question": "What is the Newest State in Brazil?",
@@ -423,7 +463,8 @@
                 "Newest",
                 "State",
                 "Brazil"
-            ]
+            ],
+            "audio_name": "17a416c6793d529935df493bb7da186b.wav"
         },
         {
             "question": "What is the oldest state in Brazil?",
@@ -433,7 +474,8 @@
                 "oldest",
                 "state",
                 "Brazil"
-            ]
+            ],
+            "audio_name": "8d044a72bc3fb0a7bc60ed2303f24a0a.wav"
         },
         {
             "question": "What is the capital of Ceara?",
@@ -443,7 +485,8 @@
                 "capital",
                 "Ceara",
                 "Sierra"
-            ]
+            ],
+            "audio_name": "347aa4b9eac1e5c7bc13e65305f295a0.wav"
         },
         {
             "question": "What is the capital of Rio Grande do Sul?",
@@ -454,7 +497,8 @@
                 "Rio",
                 "Grande",
                 "Sul"
-            ]
+            ],
+            "audio_name": "ff4ee6e16e4cbfca802a2cb3a9ea919b.wav"
         },
         {
             "question": "What is the capital of Rio Grande do Norte?",
@@ -465,7 +509,8 @@
                 "Rio",
                 "Grande",
                 "Norte"
-            ]
+            ],
+            "audio_name": "ab29f68217909eda97afd8b089a8b33e.wav"
         },
         {
             "question": "What is the capital of Brazil?",
@@ -474,7 +519,8 @@
                 "What",
                 "capital",
                 "Brazil"
-            ]
+            ],
+            "audio_name": "0d218d3048610d88c1e1ff45be11938e.wav"
         },
         {
             "question": "What is the capital of Pernambuco?",
@@ -483,7 +529,8 @@
                 "What",
                 "capital",
                 "Pernambuco"
-            ]
+            ],
+            "audio_name": "617d98914da2bd2b4e66f3486be5c41d.wav"
         },
         {
             "question": "What is the capital of Para?",
@@ -492,7 +539,8 @@
                 "What",
                 "capital",
                 "Para"
-            ]
+            ],
+            "audio_name": "1d4a83111a2747aeb32d64b2d3c14873.wav"
         },
         {
             "question": "What is the origin of the name of the city of Sao Bernardo do Campo?",
@@ -505,7 +553,8 @@
                 "Sao",
                 "Bernardo",
                 "Campo"
-            ]
+            ],
+            "audio_name": "84f2a7d60a8d9caa0a9c71b8ec87c336.wav"
         },
         {
             "question": "Who were the first residents of Sao Bernardo do Campo?",
@@ -517,7 +566,8 @@
                 "Sao",
                 "Bernardo",
                 "Campo"
-            ]
+            ],
+            "audio_name": "3bb993fe979eca3cb695147883b1c59e.wav"
         },
         {
             "question": "How old is the city of Sao Bernardo do Campo?",
@@ -529,7 +579,8 @@
                 "Sao",
                 "Bernardo",
                 "Campo"
-            ]
+            ],
+            "audio_name": "2362b20d410afce0312dbffd3cdf6486.wav"
         },
         {
             "question": "What is the area of Sao Bernardo do Campo?",
@@ -540,7 +591,8 @@
                 "Sao",
                 "Bernardo",
                 "Campo"
-            ]
+            ],
+            "audio_name": "74177243f55e74ba4df9e116d9320f4d.wav"
         },
         {
             "question": "How many neighborhoods does the city of Sao Bernardo do Campo?",
@@ -553,7 +605,8 @@
                 "Sao",
                 "Bernardo",
                 "Campo"
-            ]
+            ],
+            "audio_name": "8a93188246e0980f38f2432283e92eac.wav"
         },
         {
             "question": "Who was the first mayor of the city of Sao Bernardo do Campo?",
@@ -566,18 +619,20 @@
                 "Sao",
                 "Bernardo",
                 "Campo"
-            ]
+            ],
+            "audio_name": "f06050d2ec09c18fbfc22a1f40fc9a43.wav"
         },
         {
             "question": "Sao Bernardo do Campo borders with which cities?",
-            "answer": "The municipality borders are the cities of Diadema, Sao Paulo, Sao Caetano do Sul, Santo André, Cubatão and Sao Vicente, in addiction to being close to the capital os Sao Paulo.",
+            "answer": "The municipality borders are the cities of Diadema, Sao Paulo, Sao Caetano do Sul, Santo Andr\u00e9, Cubat\u00e3o and Sao Vicente, in addiction to being close to the capital os Sao Paulo.",
             "question_array": [
                 "Sao",
                 "Bernardo",
                 "Campo",
                 "borders",
                 "cities"
-            ]
+            ],
+            "audio_name": "91d28d7e9749e9eff5b6656d36861643.wav"
         },
         {
             "question": "What is the name of someone born in Sao Bernardo do Campo?",
@@ -590,7 +645,8 @@
                 "Sao",
                 "Bernardo",
                 "Campo"
-            ]
+            ],
+            "audio_name": "ba0209767053e58b322f225717590b48.wav"
         },
         {
             "question": "Who founded the FEI?",
@@ -599,7 +655,8 @@
                 "Who",
                 "founded",
                 "FEI"
-            ]
+            ],
+            "audio_name": "f1d5f7ad31601763d5313ca4ffc7f145.wav"
         },
         {
             "question": "What does the roof of the Capela Santo Inacio de Loyola represent?",
@@ -613,7 +670,8 @@
                 "de",
                 "Loyola",
                 "represent"
-            ]
+            ],
+            "audio_name": "148605a9c4d66f493baa63d55da21892.wav"
         },
         {
             "question": "How many buildings do we have at the FEI?",
@@ -623,7 +681,8 @@
                 "many",
                 "buildings",
                 "FEI"
-            ]
+            ],
+            "audio_name": "53556a95a425e7ffb6226d8cd5fd7161.wav"
         },
         {
             "question": "How many partnerships does the FEI have?",
@@ -633,7 +692,8 @@
                 "many",
                 "partnerships",
                 "FEI"
-            ]
+            ],
+            "audio_name": "4fbb1f476f521fff55efc0e566564f3d.wav"
         },
         {
             "question": "FEI is recognized as the largest educational hub in Latin America than?",
@@ -646,17 +706,19 @@
                 "hub",
                 "Latin",
                 "America"
-            ]
+            ],
+            "audio_name": "c98c19727b6a8b8fcf6b4bf5ded39488.wav"
         },
         {
             "question": "What was the first name of the FEI?",
-            "answer": "ESAN - Escola Superior de Administração e Negócios da FEI, inspired by Harvard",
+            "answer": "ESAN - Escola Superior de Administra\u00e7\u00e3o e Neg\u00f3cios da FEI, inspired by Harvard",
             "question_array": [
                 "What",
                 "first",
                 "name",
                 "FEI"
-            ]
+            ],
+            "audio_name": "198d41001ff88b5de34af7c5af774add.wav"
         },
         {
             "question": "What decade did the FEI come to SBC?",
@@ -667,26 +729,29 @@
                 "FEI",
                 "come",
                 "SBC"
-            ]
+            ],
+            "audio_name": "91d9f3328202f11b76cf7a5b5f1dae24.wav"
         },
         {
             "question": "What does the name FEI mean?",
-            "answer": "The acronym means Fundação Educacional Inaciana",
+            "answer": "The acronym means Funda\u00e7\u00e3o Educacional Inaciana",
             "question_array": [
                 "What",
                 "name",
                 "FEI",
                 "mean"
-            ]
+            ],
+            "audio_name": "0ca43bf91e4652c5b88378b2e03a1876.wav"
         },
         {
             "question": "What does AGFEI mean?",
-            "answer": "The acronym means Agência de Inovação da FEI",
+            "answer": "The acronym means Ag\u00eancia de Inova\u00e7\u00e3o da FEI",
             "question_array": [
                 "What",
                 "AGFEI",
                 "mean"
-            ]
+            ],
+            "audio_name": "e372f2b7bf112123c1e9fccbd8a58879.wav"
         },
         {
             "question": "What is the ROBOFEI project about?",
@@ -695,7 +760,8 @@
                 "What",
                 "ROBOFEI",
                 "project"
-            ]
+            ],
+            "audio_name": "6a9421a13930494dd0b01edb6800e04c.wav"
         },
         {
             "question": "What is the FEIBAJA project about?",
@@ -704,7 +770,8 @@
                 "What",
                 "FEIBAJA",
                 "project"
-            ]
+            ],
+            "audio_name": "858a5ab720e9c01534f6c465b9504f89.wav"
         },
         {
             "question": "What is the AERODESIGN project about?",
@@ -713,7 +780,8 @@
                 "What",
                 "AERODESIGN",
                 "project"
-            ]
+            ],
+            "audio_name": "e75efc451cc0000c05ec3f4a65a91b32.wav"
         },
         {
             "question": "What is the CONCRETO-FEI project about?",
@@ -723,7 +791,8 @@
                 "CONCRETO",
                 "FEI",
                 "project"
-            ]
+            ],
+            "audio_name": "6c9faee0c8b113d68513e47dc2e9777c.wav"
         },
         {
             "question": "What is the FORMULA-FEI project about?",
@@ -733,7 +802,8 @@
                 "FORMULA",
                 "FEI",
                 "project"
-            ]
+            ],
+            "audio_name": "052ab6358b7b9bd5796d58541a1a905e.wav"
         },
         {
             "question": "What is the PROGRAMMING MARATHON project about?",
@@ -743,7 +813,8 @@
                 "PROGRAMMING",
                 "MARATHON",
                 "project"
-            ]
+            ],
+            "audio_name": "ea53163c0b3d7f3711f18a5f9c6c2ce9.wav"
         },
         {
             "question": "What is the AICHE-FEI project about?",
@@ -753,7 +824,8 @@
                 "AICHE",
                 "FEI",
                 "project"
-            ]
+            ],
+            "audio_name": "66256d79c6a59212c49b3ae29f136b5f.wav"
         },
         {
             "question": "What is the VR-FEI project about?",
@@ -763,7 +835,8 @@
                 "VR",
                 "FEI",
                 "project"
-            ]
+            ],
+            "audio_name": "0bbd405340d4e77124386f9808f099ad.wav"
         }
     ]
 }
