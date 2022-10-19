@@ -188,7 +188,7 @@
         },
         {
             "question": "why shouldnt r2d2 be allowed in movies?",
-            "answer": "Because r2d2 is boring.",
+            "answer": "Because r 2 d 2 is boring.",
             "question_array": [
                 "r2d2",
                 "allowed",
@@ -312,7 +312,7 @@
         },
         {
             "question": "What is the only capital of Brazil crossed by the Equator?",
-            "answer": "Macapá is the only Brazilian capital crossed by the Equator line",
+            "answer": "Macapa is the only Brazilian capital crossed by the Equator line",
             "question_array": [
                 "What",
                 "capital",
@@ -399,6 +399,7 @@
             "question_array": [
                 "Where",
                 "Itamaraty",
+                "Itamarachi",
                 "Palace",
                 "located"
             ]
@@ -442,7 +443,8 @@
                 "What",
                 "capital",
                 "Ceara",
-                "Sierra"
+                "Sierra",
+                "Seara"
             ]
         },
         {
@@ -650,12 +652,13 @@
         },
         {
             "question": "What was the first name of the FEI?",
-            "answer": "ESAN - Escola Superior de Administração e Negócios da FEI, inspired by Harvard",
+            "answer": "ESAN - Escola Superior de Administrasao e Negocios da FEI, inspired by Harvard",
             "question_array": [
                 "What",
                 "first",
                 "name",
-                "FEI"
+                "FEI",
+                "fay"
             ]
         },
         {
@@ -671,7 +674,7 @@
         },
         {
             "question": "What does the name FEI mean?",
-            "answer": "The acronym means Fundação Educacional Inaciana",
+            "answer": "The acronym means Fundasao Educacional Inaciana",
             "question_array": [
                 "What",
                 "name",
@@ -685,7 +688,12 @@
             "question_array": [
                 "What",
                 "AGFEI",
-                "mean"
+                "mean",
+                "A",
+                "G",
+                "F",
+                "E",
+                "I"
             ]
         },
         {
