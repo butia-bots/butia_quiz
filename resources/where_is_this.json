@@ -1,0 +1,110 @@
+{
+    "questions": [
+        {
+            "question": "Where is the TV?",
+            "answer": "Living room",
+            "question_array": [
+                "where",
+                "TV",
+                "T",
+                "V",
+                "tivi"
+            ]
+        },
+        {
+            "question": "Where is the television?",
+            "answer": "Living room",
+            "question_array": [
+                "where",
+                "TV",
+                "T",
+                "V",
+                "television"
+            ]
+        },
+        {
+            "question": "Where is the remote control?",
+            "answer": "Living room, close to Television",
+            "question_array": [
+                "where",
+                "remote",
+                "control",
+                "TV",
+                "television"
+            ]
+        },
+        {
+            "question": "Where is the bed?",
+            "answer": "Bedroom",
+            "question_array": [
+                "where",
+                "bed",
+                "bedroom"
+            ]
+        },
+        {
+            "question": "Where is the couch?",
+            "answer": "Living room",
+            "question_array": [
+                "where",
+                "couch"
+            ]
+        },
+        {
+            "question": "Where is the small table",
+            "answer": "Living room",
+            "question_array": [
+                "where",
+                "small",
+                "table"
+            ]
+        },
+        {
+            "question": "Where is the small dinner table?",
+            "answer": "Kitchen",
+            "question_array": [
+                "where",
+                "small",
+                "table",
+                "dinner"
+            ]
+        },
+        {
+            "question": "Where is the cupboard?",
+            "answer": "Kitchen",
+            "question_array": [
+                "cupboard"
+            ]
+        },
+        {
+            "question": "Where are the drawers?",
+            "answer": "Kitchen",
+            "question_array": [
+                "drawers"
+            ]
+        },
+        {
+            "question": "Where is the bookcase?",
+            "answer": "Bedroom",
+            "question_array": [
+                "bookcase"
+            ]
+        },
+        {
+            "question": "Where is the powered refrigerator",
+            "answer": "Kitchen",
+            "question_array": [
+                "refrigerator",
+                "powered"
+            ]
+        },
+        {
+            "question": "Where is the refrigerator",
+            "answer": "Kitchen",
+            "question_array": [
+                "refrigerator",
+                "powered"
+            ]
+        }
+    ]
+}
