@@ -1,37 +1,52 @@
-# BUTIA_QUIZ
+# butia_quiz package
 
-Definition
+## 1. Description
 
-----
-## Installation
+This package provides the ability for the robot DoRIS to answer previously known questions.
 
-In catkin_ws/src
-~~~
-$ git clone https://github.com/butia-bots/butia_quiz.git
-$ cd butia_quiz
-$ sudo ./install.sh
-~~~
+___
+## 2. Requirements
 
-----
-## Files
+You will need:
+- [ROS Noetic](http://wiki.ros.org/noetic/Installation)
+- pip
 
+___
+## 3. Download dependencies
 
-- config/ros.yaml
+To install the dependencies you will need to run the _install.sh_ with super user pemission
 
-    This file present the services, topics and subscribers name used in this package.
+```
+chmod +x install.sh
+sudo ./install.sh
+```
 
-- launch/butia_quiz.launch
+The dependencies will be installed.
 
-    This file allow run the butia quiz node.
+___
+## 4. Nodes
 
-- nodes/
+We develop a node to receive and find the question in a questions file.
 
-    This directory contains all nodes created in butia quiz package.
+The **butia_quiz_node** is a ROS Service that receives the question in text form. From there, this question is searched in the questions file and returns the corresponding answer. This search is performed using two-word comparison methods, such as the Levenshtein method. After finding the answer, it is sent using the same ROS Service.
 
-- resources/
+___
+## 5. Services and messages
 
-    This directory contains files with questions ans answer of the competitions.
+We created a service to make possible the communication between ours packages.
 
-- srv/
-  
-    This directory contains the services os butia quiz package.
+### 5.1 Services
+
+- ButiaQuizComm.srv receives a question as string and returns a answer as string.
+
+___
+## 6. Usage
+
+The first use of the node may take a while as the models are being downloaded.
+
+To start the node you must run:
+```
+roslaunch butia_quiz.launch
+```
+
+This launch will to load the config file and run the butia_quiz_node.
