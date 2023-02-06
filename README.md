@@ -60,7 +60,7 @@ If you find this package useful, consider citing it using:
     howpublished={\url{https://github.com/butia-bots/butia_quiz/}},
     year={2022}
 }
-
+```
 <p align="center"> 
   <i>If you liked this repository, please don't forget to starred it!</i>
   <img src="https://img.shields.io/github/stars/butia-bots/butia_quiz?style=social"/>
