@@ -51,7 +51,7 @@ roslaunch butia_quiz.launch
 
 This launch will to load the config file and run the butia_quiz_node.
 
-## License & Citation
+## Citation
 If you find this package useful, consider citing it using:
 ```
 @misc{butia_quiz,
