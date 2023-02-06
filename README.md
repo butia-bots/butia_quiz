@@ -51,6 +51,16 @@ roslaunch butia_quiz.launch
 
 This launch will to load the config file and run the butia_quiz_node.
 
+## License & Citation
+If you find this package useful, consider citing it using:
+```
+@misc{butia_quiz,
+    title={Butia Quiz Package},
+    author={{ButiaBots}},
+    howpublished={\url{https://github.com/butia-bots/butia_quiz/}},
+    year={2022}
+}
+
 <p align="center"> 
   <i>If you liked this repository, please don't forget to starred it!</i>
   <img src="https://img.shields.io/github/stars/butia-bots/butia_quiz?style=social"/>
