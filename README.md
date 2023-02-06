@@ -50,3 +50,8 @@ roslaunch butia_quiz.launch
 ```
 
 This launch will to load the config file and run the butia_quiz_node.
+
+<p align="center"> 
+  <i>If you liked this repository, please don't forget to starred it!</i>
+  <img src="https://img.shields.io/github/stars/butia-bots/butia_quiz?style=social"/>
+</p>
