@@ -1,0 +1,154 @@
+{
+  "questions": [
+    {
+      "question": "Do french like snails?",
+      "answer": "The French eat around 30,000 tons of snails a year.",
+      "question_array": ["french", "snails"]
+    },
+    {
+      "question": "Would you mind me kissing you on a train?",
+      "answer": "I would. French law forbids couples from kissing on train platforms.",
+      "question_array": ["kissing", "train"]
+    },
+    {
+      "question": "Which French king ruled the least?",
+      "answer": "Louis XIX was the king of France for just 20 minutes, the shortest ever reign.",
+      "question_array": ["French", "king", "ruled"]
+    },
+    {
+      "question": "What's the busiest train station in Europe?",
+      "answer": "Paris Gare du Nord is Europe's busiest railway station.",
+      "question_array": ["busiest", "train", "station", "Europe"]
+    },
+    {
+      "question": "Which is the highest mountain in Europe?",
+      "answer": "The highest mountain in Europe is Mont Blank in the French Alps.",
+      "question_array": ["highest", "mountain", "Europe"]
+    },
+    {
+      "question": "Which bread is most french, a croissant or a baguette?",
+      "answer": "The croissant was actually invented in Austria in the 13th century.",
+      "question_array": ["bread", "french", "croissant", "baguette"]
+    },
+    {
+      "question": "Which is the most visited museum in the wrorld?",
+      "answer": "The Louvre is the most visited museum in the world.",
+      "question_array": ["visited", "museum", "world"]
+    },
+    {
+      "question": "What's France's cheese production?",
+      "answer": "France produces around 1.7 million tons of cheese a year in around 1,600 varieties",
+      "question_array": ["France", "cheese", "production"]
+    },
+    {
+      "question": "Which 21-stage, 23-day, 2,200-mile men's bike race is held each summer and ends at the Champs-Élysées?",
+      "answer": "That would be the Tour de France.",
+      "question_array": ["21-stage", "23-day", "2,200-mile", "bike", "race", "summer", "ends", "Champs-Élysées"]
+    },
+    {
+      "question": "France shares a land border with what country that also immediately follows it on an alphabetical list of the English names of E.U. nations?",
+      "answer": "I'm sure you're talking about Germany.",
+      "question_array": ["France", "shares", "land", "border", "country", "follows", "alphabetical", "list", "English", "names", "E.U.", "nations"]
+    },
+    {
+      "question": "What colour features in the national flags of all the countries that border mainland France?",
+      "answer": "Belgium, Luxemburg, Germany, Switzerland, Italy, and Spain, all have the red color in their flags.",
+      "question_array": ["colour", "features", "national", "flags", "countries", "border", "mainland", "France"]
+    },
+    {
+      "question": "What is Vincenzo Peruggia famous for?",
+      "answer": "Vincenzo Peruggia is infamous for stealing the Mona Lisa in 1911.",
+      "question_array": ["Vincenzo", "Peruggia", "famous"]
+    },
+    {
+      "question": "Which airport is the biggest and busiest in France?",
+      "answer": "The Charles de Gaulle Airport.",
+      "question_array": ["airport", "biggest", "busiest", "France"]
+    },
+    {
+      "question": "Lyon, France is home to what border-spanning law enforcement agency?",
+      "answer": "Lyon, France is home to the Interpol.",
+      "question_array": ["Lyon", "France", "home", "border-spanning", "law", "enforcement", "agency"]
+    },
+    {
+      "question": "What metallic element gets its name from France's old Latin name?",
+      "answer": "The gallium element got its name from France's old Latin name",
+      "question_array": ["metallic", "element", "name", "France's", "old", "Latin"]
+    },
+    {
+      "question": "Which major public square is located at the eastern end of the Champs-Elysees",
+      "answer": "The Place De La Concorde",
+      "question_array": ["major", "public", "square", "located", "eastern", "end", "Champs-Elysees"]
+    },
+    {
+      "question": "Which are the five countries that are represented at every modern Olympics since its beginning.",
+      "answer": "Australia, France, Great Britain, Greece, and Switzerland.",
+      "question_array": ["five", "countries", "represented", "every", "modern", "Olympics", "beginning"]
+    },
+    {
+      "question": "What did Napoleon said in the Waterloo battle?",
+      "answer": "I surrender.",
+      "question_array": ["Napoleon", "said", "Waterloo", "battle"]
+    },
+    {
+      "question": "In what city is the European Disney theme park located?",
+      "answer": "The European Disney theme park is located in Paris.",
+      "question_array": ["city", "European", "Disney", "theme", "park", "located"]
+    },
+    {
+      "question": "How big is a nanobot?",
+      "answer": "A nanobot is 50-100nm wide.",
+      "question_array": ["big", "nanobot"]
+    },
+    {
+      "question": "Why most computerized robot voices tend to be female?",
+      "answer": "One of the reasons is that females traditionally are lovely and caretaking.",
+      "question_array": ["computerized", "robot", "voices", "tend", "female"]
+    },
+    {
+      "question": "Who is the world's most expensive robot?",
+      "answer": "Honda's Asimo is the most expensive robot, costing circa $2.5 million USD.",
+      "question_array": ["world's", "expensive", "robot"]
+    },
+    {
+      "question": "What is the main source of inspiration in robotics.",
+      "answer": "Nature, contributing to the field of bio-inspired robotics.",
+      "question_array": ["main", "source", "inspiration", "robotics"]
+    },
+    {
+      "question": "Who crafted the word Robot?",
+      "answer": "The czech writer Karel Čapek in his 1920's play Rossum's Universal Robots",
+      "question_array": ["crafted", "word", "Robot"]
+    },
+    {
+      "question": "What does the word Robot mean?",
+      "answer": "Labor or work. That would make me a servant.",
+      "question_array": ["word", "Robot", "mean"]
+    },
+    {
+      "question": "Who formulated the principles of Cybernetics in 1948.",
+      "answer": "Norbert Wiener formulated the principles of Cybernetics in 1948.",
+      "question_array": ["formulated", "principles", "Cybernetics", "1948"]
+    },
+    {
+      "question": "Do you like super-hero movies?",
+      "answer": "Yes, I do. Zack Snyder's are the best and my favorite character is Cyborg.",
+      "question_array": ["like", "super-hero", "movies"]
+    },
+    {
+      "question": "What did Nikola Tesla demonstrate in 1898?",
+      "answer": "In 1898, Nikola Tesla demonstrated the first radio-controlled vessel.",
+      "question_array": ["Nikola", "Tesla", "demonstrate", "1898"]
+    },
+    {
+      "question": "What was developed in 1978?",
+      "answer": "The first object-level robot programming language.",
+      "question_array": ["developed", "1978"]
+    },
+    {
+      "question": "What is the shortest path to the Dark Side?",
+      "answer": "My A-star algorithm indicates the answer is Fear. Fear leads to anger, anger leads to hate, and hate leads to suffering.",
+      "question_array": ["shortest", "path", "Dark", "Side"]
+    }
+  ]
+}
