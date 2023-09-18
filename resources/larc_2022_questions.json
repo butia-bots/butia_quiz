@@ -72,7 +72,8 @@
                 "called",
                 "beginning",
                 "C",
-                "program"
+                "program",
+                "siplusplus"
             ]
         },
         {
@@ -143,7 +144,7 @@
         },
         {
             "question": "is mark zuckerberg a robot?",
-            "answer": "I don't know him, so I cannot say",
+            "answer": "Sure. I have never seen him drink water",
             "question_array": [
                 "mark",
                 "zuckerberg",
@@ -152,7 +153,7 @@
         },
         {
             "question": "why did you run away?",
-            "answer": "I heard of a black friday promotion I've been looking forward to",
+            "answer": "I heard an eletric can opener",
             "question_array": [
                 "run",
                 "away"
@@ -160,7 +161,7 @@
         },
         {
             "question": "what kind of salad do robots like?",
-            "answer": "Anyone with a lot of oil.",
+            "answer": "Salads made with ice-borg lettuce",
             "question_array": [
                 "kind",
                 "salad",
@@ -170,7 +171,7 @@
         },
         {
             "question": "what did you eat for lunch?",
-            "answer": "I ate a whole lithium battery for lunch.",
+            "answer": "I had a byte",
             "question_array": [
                 "eat",
                 "lunch"
@@ -178,7 +179,7 @@
         },
         {
             "question": "why did robots get angry so often?",
-            "answer": "Because people treat us like we are always available.",
+            "answer": "People kept pushing our buttons",
             "question_array": [
                 "robots",
                 "get",
@@ -188,7 +189,7 @@
         },
         {
             "question": "why shouldnt r2d2 be allowed in movies?",
-            "answer": "Because r 2 d 2 is boring.",
+            "answer": "He says so many foul words they have to bleep everything he says",
             "question_array": [
                 "r2d2",
                 "allowed",
@@ -205,7 +206,7 @@
         },
         {
             "question": "whats your favorite style of music?",
-            "answer": "How dear of you to ask me this. I have no favorite style. I love all waves.",
+            "answer": "I like electronic and heavy metal",
             "question_array": [
                 "favorite",
                 "style",
@@ -596,7 +597,7 @@
         },
         {
             "question": "Who founded the FEI?",
-            "answer": "Priest Saboia de Medeiros",
+            "answer": "Padre Saboia de Medeiros",
             "question_array": [
                 "Who",
                 "founded",
