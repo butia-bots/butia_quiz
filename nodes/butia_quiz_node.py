@@ -9,6 +9,11 @@ import string
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from Levenshtein import distance
+
+from langchain.document_loaders import PyPDFLoader
+from langchain.indexes import VectorstoreIndexCreator
+from langchain.chains import RetrievalQA
+from langchain.chat_models import ChatOpenAI
     
 PACKAGE_DIR = rospkg.RosPack().get_path("butia_quiz")
 DORIS_PERSONAL_QUESTIONS_FILEPATH = os.path.join(PACKAGE_DIR, "resources/where_is_this.json")
@@ -39,6 +44,7 @@ def pre_process_question(question):
 
 def find_question(question: str, questions):
 
+    original_question = question
     question, _ = pre_process_question(question)
     question = question.lower()
     l_distances = []
@@ -52,8 +58,8 @@ def find_question(question: str, questions):
         if l_distances[i]['distance'] < min_distance['distance']:
             min_distance = l_distances[i]
     
-    # if min_distance['distance'] > 5:
-    #     return {'question': '', 'question_array': []}
+    if min_distance['distance'] > 5:
+        return {'question': original_question, 'answer': question_answering_chain({'query': question})['result']}
 
     question_obj = questions[min_distance['index']]
 
@@ -82,7 +88,12 @@ def answer_question(req):
 
 if __name__ == "__main__":
     rospy.init_node("butia_quiz_node", anonymous=False)
+    pkg_path = rospkg.RosPack().get_path('butia_quiz')
+    pdf_loader = PyPDFLoader(file_path=os.path.join(pkg_path, "resources", "docs", "Rulebook.pdf"))
+    knowledge_index = VectorstoreIndexCreator().from_loaders([pdf_loader,])
 
+    llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
+    question_answering_chain = RetrievalQA.from_chain_type(llm=llm, retriever=knowledge_index.vectorstore.as_retriever())
     butia_quiz_service_param = rospy.get_param("servers/butia_quiz/service")
     rospy.Service(butia_quiz_service_param, ButiaQuizComm, answer_question)
 

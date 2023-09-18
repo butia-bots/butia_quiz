@@ -2,3 +2,7 @@ pydub
 wolframalpha
 levenshtein
 nltk
+langchain
+openai
+chromadb
+pypdf
