@@ -100,7 +100,7 @@ if __name__ == "__main__":
     texts = text_splitter.split_documents(documents)
     docsearch = Chroma.from_documents(texts, embeddings)
     #llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
-    llm = Replicate(model="meta/llama-2-70b:a52e56fee2269a78c9279800ec88898cecb6c8f1df22a6483132bea266648f00", model_kwargs={"temperature": 0.0, "max_length": 500, "top_p": 1})
+    llm = Replicate(model="meta/llama-2-70b-chat:02e509c789964a7ea8736978a43525956ef40397be9033abf9fd2badfe68c9e3", model_kwargs={"temperature": 0.5, "max_new_tokens": 500, "top_p": 1})
     question_answering_chain = RetrievalQA.from_chain_type(llm=llm, retriever=docsearch.as_retriever())
     butia_quiz_service_param = rospy.get_param("servers/butia_quiz/service")
     rospy.Service(butia_quiz_service_param, ButiaQuizComm, answer_question)
