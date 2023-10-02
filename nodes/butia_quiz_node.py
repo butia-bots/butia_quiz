@@ -14,7 +14,7 @@ from langchain.document_loaders import PyPDFLoader
 from langchain.indexes import VectorstoreIndexCreator
 from langchain.chains import RetrievalQA
 from langchain.chat_models import ChatOpenAI
-from langchain.llms import Replicate
+from langchain.llms import Clarifai
 from langchain.embeddings import HuggingFaceHubEmbeddings
 from langchain.vectorstores import Chroma
 from langchain.text_splitter import CharacterTextSplitter
@@ -100,8 +100,9 @@ if __name__ == "__main__":
     texts = text_splitter.split_documents(documents)
     docsearch = Chroma.from_documents(texts, embeddings)
     #llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
-    llm = Replicate(model="meta/llama-2-70b-chat:02e509c789964a7ea8736978a43525956ef40397be9033abf9fd2badfe68c9e3", model_kwargs={"temperature": 0.5, "max_new_tokens": 500, "top_p": 1})
-    question_answering_chain = RetrievalQA.from_chain_type(llm=llm, retriever=docsearch.as_retriever())
+    #llm = Replicate(model="meta/llama-2-70b-chat:02e509c789964a7ea8736978a43525956ef40397be9033abf9fd2badfe68c9e3", model_kwargs={"temperature": 0.5, "max_new_tokens": 1024, "top_p": 1})
+    llm = Clarifai(user_id="openai", app_id="chat-completion", model_id="GPT-4")
+    question_answering_chain = RetrievalQA.from_chain_type(llm=llm, retriever=docsearch.as_retriever(), chain_type="stuff")
     butia_quiz_service_param = rospy.get_param("servers/butia_quiz/service")
     rospy.Service(butia_quiz_service_param, ButiaQuizComm, answer_question)
 
