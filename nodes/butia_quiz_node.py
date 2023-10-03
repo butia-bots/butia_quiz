@@ -18,9 +18,19 @@ from langchain.llms import Clarifai
 from langchain.embeddings import HuggingFaceHubEmbeddings, ClarifaiEmbeddings, OpenAIEmbeddings
 from langchain.vectorstores import Chroma
 from langchain.text_splitter import CharacterTextSplitter
-    
+from langchain.callbacks import StreamingStdOutCallbackHandler
+from langchain.prompts import PromptTemplate
+
 PACKAGE_DIR = rospkg.RosPack().get_path("butia_quiz")
 DORIS_PERSONAL_QUESTIONS_FILEPATH = os.path.join(PACKAGE_DIR, "resources/where_is_this.json")
+
+template = """Use the following pieces of context to answer the question at the end. 
+If you don't know the answer, just say that you don't know, don't try to make up an answer. 
+Use one sentence maximum and keep the answer as concise as possible.  
+{context}
+Question: {question}
+Helpful Answer:"""
+QA_CHAIN_PROMPT = PromptTemplate.from_template(template)
 
 def merge_question_array(question_array):
     question = ''
@@ -101,13 +111,12 @@ if __name__ == "__main__":
     text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
     texts = text_splitter.split_documents(documents)
     docsearch = Chroma.from_documents(texts, embeddings)
-    llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
+    llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0, streaming=True, callbacks=[StreamingStdOutCallbackHandler(),])
     #llm = Replicate(model="meta/llama-2-70b-chat:02e509c789964a7ea8736978a43525956ef40397be9033abf9fd2badfe68c9e3", model_kwargs={"temperature": 0.5, "max_new_tokens": 1024, "top_p": 1})
     #llm = Clarifai(user_id="openai", app_id="chat-completion", model_id="GPT-4")
     #llm = Clarifai(user_id="openai", app_id="completion", model_id="gpt-3_5-turbo-instruct")
     #llm = Clarifai(user_id="meta", app_id="Llama-2", model_id="llama2-13b-chat")
-    question_answering_chain = RetrievalQA.from_chain_type(llm=llm, retriever=docsearch.as_retriever(), chain_type="stuff")
-    #question_answering_chain.combine_documents_chain.llm_chain.prompt.template = "Use the following pieces of context to answer the question at the end. Remember to always answer in at most 3 phrases. If you don't know the answer, just say that you don't know, don't try to make up an answer.\n\n{context}\n\nQuestion: {question}\nHelpful Answer:"
+    question_answering_chain = RetrievalQA.from_chain_type(llm=llm, retriever=docsearch.as_retriever(), chain_type="stuff", chain_type_kwargs={'prompt': QA_CHAIN_PROMPT})
     #print(question_answering_chain)
     #exit()
     butia_quiz_service_param = rospy.get_param("servers/butia_quiz/service")
