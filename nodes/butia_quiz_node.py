@@ -10,7 +10,7 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from Levenshtein import distance
 
-from langchain.document_loaders import PyPDFLoader
+from langchain.document_loaders import PyPDFLoader, JSONLoader
 from langchain.indexes import VectorstoreIndexCreator
 from langchain.chains import RetrievalQA
 from langchain.chat_models import ChatOpenAI
@@ -58,7 +58,9 @@ def pre_process_question(question):
 
 def find_question(question: str, questions):
 
-    original_question = question
+    return {'question': question, 'answer': question_answering_chain({'query': question})['result']}
+
+    '''original_question = question
     question, _ = pre_process_question(question)
     question = question.lower()
     l_distances = []
@@ -77,7 +79,7 @@ def find_question(question: str, questions):
 
     question_obj = questions[min_distance['index']]
 
-    return question_obj
+    return question_obj'''
 
 def answer_question(req):
     with open(DORIS_PERSONAL_QUESTIONS_FILEPATH) as json_file:
@@ -103,8 +105,9 @@ def answer_question(req):
 if __name__ == "__main__":
     rospy.init_node("butia_quiz_node", anonymous=False)
     pkg_path = rospkg.RosPack().get_path('butia_quiz')
-    pdf_loader = PyPDFLoader(file_path=os.path.join(pkg_path, "resources", "docs", "Rulebook.pdf"))
-    documents = pdf_loader.load()
+    pdf_loader = PyPDFLoader(file_path=os.path.join(pkg_path, "resources", "context.pdf"))
+    json_loader = JSONLoader(file_path=DORIS_PERSONAL_QUESTIONS_FILEPATH, jq_schema=".questions[]", text_content=False)
+    documents = pdf_loader.load() + json_loader.load()
     #embeddings = HuggingFaceHubEmbeddings()
     #embeddings = ClarifaiEmbeddings(user_id="openai", app_id="embed", model_id="text-embedding-ada")
     embeddings = OpenAIEmbeddings()
