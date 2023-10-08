@@ -26,6 +26,9 @@ from langchain.prompts import PromptTemplate
 PACKAGE_DIR = rospkg.RosPack().get_path("butia_quiz")
 DORIS_PERSONAL_QUESTIONS_FILEPATH = os.path.join(PACKAGE_DIR, "resources/where_is_this.json")
 
+#TODO find a better way to set threshold
+MAX_COSINE_DISTANCE = 0.1
+
 template = """Use the following pieces of context to answer the question at the end. 
 If you don't know the answer, just say that you don't know, don't try to make up an answer. 
 Use one sentence maximum and keep the answer as concise as possible.  
@@ -62,9 +65,12 @@ def find_question(question: str, questions):
 
     #return {'question': question, 'answer': question_answering_chain({'query': question})['result']}
 
-    result = predefined_store.search(query=question, search_type="similarity", fetch_k=1)[0]
-    answer = result.metadata['answer']
-    return {'question': result.page_content, 'answer': answer}
+    result, cosine_distance = predefined_store.similarity_search_with_score(query=question, k=1)[0]
+    if cosine_distance <= MAX_COSINE_DISTANCE:
+        answer = result.metadata['answer']
+        return {'question': result.page_content, 'answer': answer}
+    else:
+        return {'question': question, 'answer': question_answering_chain({'query': question})['result']}
     '''original_question = question
     question, _ = pre_process_question(question)
     question = question.lower()
