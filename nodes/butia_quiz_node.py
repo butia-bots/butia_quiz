@@ -105,9 +105,9 @@ def answer_question(req):
 if __name__ == "__main__":
     rospy.init_node("butia_quiz_node", anonymous=False)
     pkg_path = rospkg.RosPack().get_path('butia_quiz')
-    pdf_loader = PyPDFLoader(file_path=os.path.join(pkg_path, "resources", "context.pdf"))
-    json_loader = JSONLoader(file_path=DORIS_PERSONAL_QUESTIONS_FILEPATH, jq_schema=".questions[]", text_content=False)
-    documents = pdf_loader.load() + json_loader.load()
+    pdf_loader = PyPDFLoader(file_path=os.path.join(pkg_path, "resources", "Questions.pdf"))
+    #json_loader = JSONLoader(file_path=DORIS_PERSONAL_QUESTIONS_FILEPATH, jq_schema=".questions[]", text_content=False)
+    documents = pdf_loader.load()# + json_loader.load()
     #embeddings = HuggingFaceHubEmbeddings()
     #embeddings = ClarifaiEmbeddings(user_id="openai", app_id="embed", model_id="text-embedding-ada")
     embeddings = OpenAIEmbeddings()
