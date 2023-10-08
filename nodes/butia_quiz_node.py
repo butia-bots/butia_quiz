@@ -11,11 +11,13 @@ from nltk.corpus import stopwords
 from Levenshtein import distance
 
 from langchain.document_loaders import PyPDFLoader, JSONLoader
+from langchain.schema import Document
 from langchain.indexes import VectorstoreIndexCreator
 from langchain.chains import RetrievalQA
+from langchain.llms import HuggingFacePipeline
 from langchain.chat_models import ChatOpenAI
 from langchain.llms import Clarifai
-from langchain.embeddings import HuggingFaceHubEmbeddings, ClarifaiEmbeddings, OpenAIEmbeddings
+from langchain.embeddings import HuggingFaceHubEmbeddings, ClarifaiEmbeddings, OpenAIEmbeddings, HuggingFaceEmbeddings
 from langchain.vectorstores import Chroma
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.callbacks import StreamingStdOutCallbackHandler
@@ -58,16 +60,21 @@ def pre_process_question(question):
 
 def find_question(question: str, questions):
 
-    return {'question': question, 'answer': question_answering_chain({'query': question})['result']}
+    #return {'question': question, 'answer': question_answering_chain({'query': question})['result']}
 
+    result = predefined_store.search(query=question, search_type="similarity", fetch_k=1)[0]
+    answer = result.metadata['answer']
+    return {'question': result.page_content, 'answer': answer}
     '''original_question = question
     question, _ = pre_process_question(question)
     question = question.lower()
     l_distances = []
     for index, file_question in enumerate(questions):
         merged_file_question = merge_question_array(file_question['question_array']).lower()
-        l_distances.append({'distance': distance(merged_file_question, question),'index': index})
+        #l_distances.append({'distance': distance(merged_file_question, question),'index': index})
+        
     
+    print([(q['question'],d['distance']) for q, d in zip(questions, l_distances)])
     min_distance = l_distances[0]
 
     for i in range(1, len(l_distances)):
@@ -111,10 +118,18 @@ if __name__ == "__main__":
     #embeddings = HuggingFaceHubEmbeddings()
     #embeddings = ClarifaiEmbeddings(user_id="openai", app_id="embed", model_id="text-embedding-ada")
     embeddings = OpenAIEmbeddings()
+    #embeddings = HuggingFaceEmbeddings()
+    predefined_documents = []
+    with open(DORIS_PERSONAL_QUESTIONS_FILEPATH) as json_file:
+        all_questions = json.load(json_file)["questions"]
+    for question in all_questions:
+        predefined_documents.append(Document(page_content=question['question'], metadata=dict(answer=question['answer'])))
+    predefined_store = Chroma.from_documents(predefined_documents, embeddings)
     text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
     texts = text_splitter.split_documents(documents)
     docsearch = Chroma.from_documents(texts, embeddings)
     llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0, streaming=True, callbacks=[StreamingStdOutCallbackHandler(),])
+    #llm = HuggingFacePipeline.from_model_id(model_id="google/flan-t5-small", task="text2text-generation", model_kwargs={"do_sample": False, "max_length": 1024})
     #llm = Replicate(model="meta/llama-2-70b-chat:02e509c789964a7ea8736978a43525956ef40397be9033abf9fd2badfe68c9e3", model_kwargs={"temperature": 0.5, "max_new_tokens": 1024, "top_p": 1})
     #llm = Clarifai(user_id="openai", app_id="chat-completion", model_id="GPT-4")
     #llm = Clarifai(user_id="openai", app_id="completion", model_id="gpt-3_5-turbo-instruct")
