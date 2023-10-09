@@ -1,0 +1,553 @@
+
+{
+    "questions": [
+        {
+            "question": "what is the heros name in the legend of zelda?",
+            "answer": "Despite most peoples believes, he is called Link",
+            "question_array": [
+                "hero",
+                "name",
+                "legend",
+                "zelda"
+            ]
+        },
+        {
+            "question": "what are the names of the ghosts who chase pac man and ms. pac man?",
+            "answer": "Inky, Blinky Pinky and Clyde",
+            "question_array": [
+                "names",
+                "ghosts",
+                "chase",
+                "pac",
+                "man",
+                "ms"
+            ]
+        },
+        {
+            "question": "what is the name of the mythbusters crash test dummy?",
+            "answer": "The mythbusters crash test dummy is called Buster",
+            "question_array": [
+                "name",
+                "mythbusters",
+                "crash",
+                "test",
+                "dummy"
+            ]
+        },
+        {
+            "question": "what is an oxford comma?",
+            "answer": "The hotly contested punctuation before a conjuction in a list",
+            "question_array": [
+                "oxford",
+                "comma"
+            ]
+        },
+        {
+            "question": "who was the captain of the enterprise in the pilot episode of star trek?",
+            "answer": "The captain of the enterprise in the pilot episode was Captain Pike",
+            "question_array": [
+                "captain",
+                "enterprise",
+                "pilot",
+                "episode",
+                "star",
+                "trek"
+            ]
+        },
+        {
+            "question": "what is the symbol for the modulus operator in C?",
+            "answer": "The percentage symbol is used as modulus operator in C",
+            "question_array": [
+                "symbol",
+                "modulus",
+                "operator",
+                "C"
+            ]
+        },
+        {
+            "question": "what function is automatically called at the beginning of a C++ program?",
+            "answer": "The main function",
+            "question_array": [
+                "function",
+                "automatically",
+                "called",
+                "beginning",
+                "C",
+                "program"
+            ]
+        },
+        {
+            "question": "which computer programming languages whas introduced by IBM in 1957?",
+            "answer": "Fortran was introduced by IBM in 1957",
+            "question_array": [
+                "computer",
+                "programming",
+                "languages",
+                "whas",
+                "introduced",
+                "IBM"
+            ]
+        },
+        {
+            "question": "who is considered as the first programmer?",
+            "answer": "The first programmer was Ada Lovelace",
+            "question_array": [
+                "considered",
+                "first",
+                "programmer"
+            ]
+        },
+        {
+            "question": "has a robot ever killed a person?",
+            "answer": "The first know case of robot homicide occured in 1981, when a robotic arm crushed a Japanese Kawasaki factory worker",
+            "question_array": [
+                "robot",
+                "ever",
+                "killed",
+                "person"
+            ]
+        },
+        {
+            "question": "who was hitchbot?",
+            "answer": "A hitchhiking robot that relied on the kindness of strangers to travel the world and was slain by humans",
+            "question_array": [
+                "hitchbot"
+            ]
+        },
+        {
+            "question": "are self driving cars safe?",
+            "answer": "Yes. Car accidents are product of human misconduct",
+            "question_array": [
+                "self",
+                "driving",
+                "cars",
+                "safe"
+            ]
+        },
+        {
+            "question": "who invented the compiler?",
+            "answer": "Grace Hoper. She wrote it in her spare time",
+            "question_array": [
+                "invented",
+                "compiler"
+            ]
+        },
+        {
+            "question": "who created the python programming language?",
+            "answer": "Python was invented by Guido Van Rossum",
+            "question_array": [
+                "created",
+                "python",
+                "programming",
+                "language"
+            ]
+        },
+        {
+            "question": "is mark zuckerberg a robot?",
+            "answer": "Sure. I have never seen him drink water",
+            "question_array": [
+                "mark",
+                "zuckerberg",
+                "robot"
+            ]
+        },
+        {
+            "question": "why did you run away?",
+            "answer": "I heard an electric can opener",
+            "question_array": [
+                "run",
+                "away"
+            ]
+        },
+        {
+            "question": "what kind of salad do robots like?",
+            "answer": "Salads made with ice-borg lettuce.",
+            "question_array": [
+                "kind",
+                "salad",
+                "robots",
+                "like"
+            ]
+        },
+        {
+            "question": "what did you eat for lunch?",
+            "answer": "I had a byte",
+            "question_array": [
+                "eat",
+                "lunch"
+            ]
+        },
+        {
+            "question": "why did robots get angry so often?",
+            "answer": "People kept pushing our buttons.",
+            "question_array": [
+                "robots",
+                "get",
+                "angry",
+                "often"
+            ]
+        },
+        {
+            "question": "why shouldnt r2d2 be allowed in movies?",
+            "answer": "He says so many foul words they have to bleep everything he says!",
+            "question_array": [
+                "r2d2",
+                "allowed",
+                "movies"
+            ]
+        },
+        {
+            "question": "What's your name?",
+            "answer": "Well, my name is Doris.",
+            "question_array": [
+                "What",
+                "name"
+            ]
+        },
+        {
+            "question": "whats your favorite style of music?",
+            "answer": "I like electronic and heavy Metal",
+            "question_array": [
+                "favorite",
+                "style",
+                "music"
+            ]
+        },
+        {
+            "question": "What does the acronym SMTP represents?",
+            "answer": "SMTP stands for Simple Mail Transport Protocol",
+            "question_array": [
+                "What",
+                "acronym",
+                "SMTP",
+                "represents"
+            ]
+        },
+        {
+            "question": "What does the acronym MPEG represents?",
+            "answer": "MPEG stands for Moving Picture Experts Group",
+            "question_array": [
+                "What",
+                "acronym",
+                "MPEG",
+                "represents"
+            ]
+        },
+        {
+            "question": "What does the acronym GIMP represents?",
+            "answer": "GNU Image Manipulation Program",
+            "question_array": [
+                "What",
+                "acronym",
+                "GIMP",
+                "represents"
+            ]
+        },
+        {
+            "question": "What does the acronym GNU represents?",
+            "answer": "GNU is a recursive acronym meaning GNU is Not Unix",
+            "question_array": [
+                "What",
+                "acronym",
+                "GNU",
+                "represents"
+            ]
+        },
+        {
+            "question": "What is the most populous city in Brazil?",
+            "answer": "Sao Paulo is the most populous city in Brazil with 12.03 million residents",
+            "question_array": [
+                "What",
+                "populous",
+                "city",
+                "Brazil"
+            ]
+        },
+        {
+            "question": "Which continent is Brazil located in?",
+            "answer": "The Brazilian territory is located on the South America continent",
+            "question_array": [
+                "Which",
+                "continent",
+                "Brazil",
+                "located"
+            ]
+        },
+        {
+            "question": "On what day, month and year was Brazil independence declared?",
+            "answer": "On September 7, 1822, Brazil independence was declared",
+            "question_array": [
+                "On",
+                "day",
+                "month",
+                "year",
+                "Brazil",
+                "independence",
+                "declared"
+            ]
+        },
+        {
+            "question": "How many states does Brazil have (with Federal District)?",
+            "answer": "Currently, Brazil is divided into 26 states and the Federal District, altogether there are 27 federative units",
+            "question_array": [
+                "How",
+                "many",
+                "states",
+                "Brazil",
+                "Federal",
+                "District"
+            ]
+        },
+        {
+            "question": "In what year did the first Brazilian astronaut go to space?",
+            "answer": "In March 2006, Pontes became the first Brazilian to go to space.",
+            "question_array": [
+                "In",
+                "year",
+                "first",
+                "Brazilian",
+                "astronaut",
+                "go",
+                "space"
+            ]
+        },
+        {
+            "question": "What is the only capital of Brazil crossed by the Equator?",
+            "answer": "Macapa is the only Brazilian capital crossed by the Equator line",
+            "question_array": [
+                "What",
+                "capital",
+                "Brazil",
+                "crossed",
+                "Equator"
+            ]
+        },
+        {
+            "question": "How many time zones are there in Brazil?",
+            "answer": "Brazil is a country with continental dimensions, in all it has four times zones.",
+            "question_array": [
+                "How",
+                "many",
+                "time",
+                "zones",
+                "Brazil"
+            ]
+        },
+        {
+            "question": "In which city is the worlds first urban elevator and what is the name of that elevator?",
+            "answer": "The Lacerda Elevators is a public urban elevator located in Salvador, Brazil",
+            "question_array": [
+                "In",
+                "city",
+                "world",
+                "first",
+                "urban",
+                "elevator",
+                "name",
+                "elevator"
+            ]
+        },
+        {
+            "question": "What is the only biome present in Brazil that is exclusive in the world?",
+            "answer": "The Caatinga, characterized by its dry, desert habitat is the only one of Brazils biomes found exclusively within the country",
+            "question_array": [
+                "What",
+                "biome",
+                "present",
+                "Brazil",
+                "exclusive",
+                "world"
+            ]
+        },
+        {
+            "question": "Pampulha Lake is a tourist spot in which Brazilian city?",
+            "answer": "Belo Horizonte",
+            "question_array": [
+                "Pampulha",
+                "Lake",
+                "tourist",
+                "spot",
+                "Brazilian",
+                "city"
+            ]
+        },
+        {
+            "question": "What is the smallest Brazilian state in territorial extension?",
+            "answer": "Sergipe",
+            "question_array": [
+                "What",
+                "smallest",
+                "Brazilian",
+                "state",
+                "territorial",
+                "extension"
+            ]
+        },
+        {
+            "question": "Which capitals in Brazil have the same name as your state?",
+            "answer": "Sao Paulo and Rio de Janeiro",
+            "question_array": [
+                "Which",
+                "capitals",
+                "Brazil",
+                "name",
+                "state"
+            ]
+        },
+        {
+            "question": "Where is the Itamaraty Palace located?",
+            "answer": "Brasilia",
+            "question_array": [
+                "Where",
+                "Itamaraty",
+                "Itamarachi",
+                "Palace",
+                "located"
+            ]
+        },
+        {
+            "question": "What was the first name given to Brazil by the Portuguese?",
+            "answer": "Ilha de Vera Cruz",
+            "question_array": [
+                "What",
+                "first",
+                "name",
+                "given",
+                "Brazil",
+                "Portuguese"
+            ]
+        },
+        {
+            "question": "What is the Newest State in Brazil?",
+            "answer": "Tocantins",
+            "question_array": [
+                "What",
+                "Newest",
+                "State",
+                "Brazil"
+            ]
+        },
+        {
+            "question": "What is the oldest state in Brazil?",
+            "answer": "Pernambuco",
+            "question_array": [
+                "What",
+                "oldest",
+                "state",
+                "Brazil"
+            ]
+        },
+        {
+            "question": "What is the capital of Ceara?",
+            "answer": "Fortaleza",
+            "question_array": [
+                "What",
+                "capital",
+                "Ceara",
+                "Sierra",
+                "Seara"
+            ]
+        },
+        {
+            "question": "What is the capital of Rio Grande do Sul?",
+            "answer": "Porto Alegre",
+            "question_array": [
+                "What",
+                "capital",
+                "Rio",
+                "Grande",
+                "Sul"
+            ]
+        },
+        {
+            "question": "What is the capital of Rio Grande do Norte?",
+            "answer": "Natal",
+            "question_array": [
+                "What",
+                "capital",
+                "Rio",
+                "Grande",
+                "Norte"
+            ]
+        },
+        {
+            "question": "What is the capital of Brazil?",
+            "answer": "Brasilia",
+            "question_array": [
+                "What",
+                "capital",
+                "Brazil"
+            ]
+        },
+        {
+            "question": "What is the capital of Pernambuco?",
+            "answer": "Recife",
+            "question_array": [
+                "What",
+                "capital",
+                "Pernambuco"
+            ]
+        },
+        {
+            "question": "What is the capital of Para?",
+            "answer": "Belem",
+            "question_array": [
+                "What",
+                "capital",
+                "Para"
+            ]
+        },
+        {
+            "question": "What is the capital of Bahia?",
+            "answer": "Salvador",
+            "question_array": [
+                "What",
+                "capital",
+                "Bahia"
+            ]
+        },
+        {
+            "question": "Acarajé is a typical food from which state?",
+            "answer": "Bahia",
+            "question_array": [
+                "Acaraje",
+                "typical",
+                "food",
+                "state"
+            ]
+        },
+        {
+            "question": "What are the colors of Bahia's flag?",
+            "answer": "White, red and blue",
+            "question_array": [
+                "What",
+                "colors",
+                "Bahia",
+                "flag"
+            ]
+        },
+        {
+            "question": "What are some typical foods from Bahia?",
+            "answer": "Caruru, vatapá, abará and acarajé.",
+            "question_array": [
+                "What",
+                "typical",
+                "foods",
+                "Bahia"
+            ]
+        },
+        {
+            "question": "What is the most popular rhythm in Bahia, played mainly during the Bahian Carnival?",
+            "answer": "Axé or pagode.",
+            "question_array": [
+                "What",
+                "popular",
+                "rhythm",
+                "Bahia",
+                "played",
+                "Bahian",
+                "Carnival"
+            ]
+        }
+    ]
+}
