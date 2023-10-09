@@ -24,7 +24,7 @@ from langchain.callbacks import StreamingStdOutCallbackHandler
 from langchain.prompts import PromptTemplate
 
 PACKAGE_DIR = rospkg.RosPack().get_path("butia_quiz")
-DORIS_PERSONAL_QUESTIONS_FILEPATH = os.path.join(PACKAGE_DIR, "resources/larc_2023_questions.json")
+DORIS_PERSONAL_QUESTIONS_FILEPATH = os.path.join(PACKAGE_DIR, 'resources/larc_2023_questions.json')
 
 #TODO find a better way to set threshold
 MAX_COSINE_DISTANCE = 0.1
@@ -99,17 +99,20 @@ def answer_question(req):
         all_questions = json.load(json_file)["questions"]
 
     question = req.question
-    rospy.loginfo("---------------------")
-    rospy.loginfo(f"Question: {question}")
+    rospy.logwarn
+    rospy.logwarn("----------------------------")
+    rospy.logwarn(f"Question: {question}")
     # Find answer in questions file
     question_obj = find_question(question, all_questions)
-    rospy.loginfo(f"Processed question: {question_obj['question']}")
+    rospy.logwarn("----------------------------")
+    rospy.logwarn(f"Processed question: {question_obj['question']}")
+    rospy.logwarn("----------------------------")
     if question_obj["question"] == "":
         answer = "I don't understand your question."
     else:
         answer = question_obj["answer"]
-    rospy.loginfo(f"Answer: {answer}")
-    rospy.loginfo("---------------------")
+    rospy.logwarn(f"Answer: {answer}")
+    rospy.logwarn("---------------------")
 
     response = ButiaQuizCommResponse()
     response.answer = answer
