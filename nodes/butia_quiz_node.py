@@ -10,7 +10,7 @@ PACKAGE_DIR = rospkg.RosPack().get_path("butia_quiz")
 PDF_FILEPATH = os.path.join(PACKAGE_DIR, "resources", "Questions.pdf")
 
 # Path to the locally saved model and tokenizer
-LOCAL_MODEL_DIRECTORY = os.path.join(PACKAGE_DIR, "resources/models", "gemma_model")
+LOCAL_MODEL_DIRECTORY = os.path.join(PACKAGE_DIR, "resources/models", "gemma_2_2b_model")
 
 # Load the model and tokenizer from the local directory
 tokenizer = AutoTokenizer.from_pretrained(LOCAL_MODEL_DIRECTORY)
