@@ -10,3 +10,4 @@ replicate
 huggingface-hub
 clarifai
 jq
+PyPDF2
