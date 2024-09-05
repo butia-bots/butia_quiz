@@ -1,22 +1,23 @@
 #!/usr/bin/env python3
 import os
 import time
-#import rospy
-#import rospkg
+import rospy
+import rospkg
 import PyPDF2
-#from butia_quiz.srv import ButiaQuizComm, ButiaQuizCommResponse
+from butia_quiz.srv import ButiaQuizComm, ButiaQuizCommResponse
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
-from transformers import pipeline
 import torch
 
-#PACKAGE_DIR = rospkg.RosPack().get_path("butia_quiz")
-PDF_FILEPATH = "./resources/Questions.pdf"
+PACKAGE_DIR = rospkg.RosPack().get_path("butia_quiz")
+PDF_FILEPATH = os.path.join(PACKAGE_DIR, "resources", "Questions.pdf")
 
 # Path to the locally saved model and tokenizer
-LOCAL_MODEL_DIRECTORY = "./gemma_model"
+LOCAL_MODEL_DIRECTORY = "./gemma_2_2b_it"
+dtype = torch.bfloat16
+
 # Load the model and tokenizer from the local directory
 tokenizer = AutoTokenizer.from_pretrained(LOCAL_MODEL_DIRECTORY)
-quantization_config = BitsAndBytesConfig(load_in_8bit=True)
+quantization_config = BitsAndBytesConfig(load_in_4bit=True)
 model = AutoModelForCausalLM.from_pretrained(LOCAL_MODEL_DIRECTORY, device_map="auto", quantization_config=quantization_config)
 
 def load_pdf_context(pdf_path):
@@ -40,97 +41,104 @@ def load_pdf_context(pdf_path):
     
     return context_text
 
-def prompt_treatment(question, context, max_tokens):
-    template = """
-    <start_of_turn>user
-    Use the following context to answer the question at the end. Use one sentence maximum and keep the answer as concise as possible, but try to include the question context on the answer. Use a maximum of {max_tokens} words for the answer. Dont leave the sentence unfinished, always finish the sentence.
-    {context}
-    Question: {question}
-    Helpful Answer:<end_of_turn>
-    <start_of_turn>model
-    """
+def prompt_treatment(question, context):
+    messages = [
+        {
+            "role": "user", 
+            "content": 
+                """
+                Use the following context to answer the question at the end. Use one sentence maximum and keep the answer as concise as possible, but try to include the question context on the answer. Dont leave the sentence unfinished, always finish the sentence.
+                {context}
+                Question: {question}
+                Helpful Answer:
+                """
+        },
+]
     
-    template = template.format(context=context, question=question, max_tokens=(max_tokens-12))
+    template = messages[0]['content'].format(context=context, question=question)
+    #prompt = tokenizer.apply_chat_template(template, tokenize=False, add_generation_prompt=True)
     return template
 
 def extract_first_qa_pair(generated_text):
     """
-    Extract the first question-answer pair from the generated text.
+    Extract the first question-answer pair from the generated text,
+    ensuring the answer is complete and succinct.
     """
-    # Split the generated text into lines
     lines = generated_text.splitlines()
     
     question = None
-    answer = None
+    answer_lines = []
     
     for line in lines:
-        # Identify the question
         if line.strip().lower().startswith("question:"):
-            question = line.strip().split(":", 1)[1].strip()
-        # Identify the answer
+            if question is None:  # Start of a new question
+                question = line.strip().split(":", 1)[1].strip()
         elif line.strip().lower().startswith("helpful answer:"):
-            answer = line.strip().split(":", 1)[1].strip()
-            break  # Stop after finding the first QA pair
+            if question is not None:  # Start of a new answer
+                answer_lines.append(line.strip().split(":", 1)[1].strip())
+            else:
+                break  # Stop processing if no new question was found
+        elif question is not None and answer_lines:  # Continue collecting answer lines
+            answer_lines.append(line.strip())
+            # Stop if we hit a complete sentence (end with period)
+            if line.endswith("."):
+                break
     
-    if question and answer:
-        return f"Question: {question}\nAnswer: {answer}"
+    if question and answer_lines:
+        answer = " ".join(answer_lines)
+        return question, answer
     else:
-        return "I couldn't find a clear question-answer pair in the response."
+        return "I dont know"
+    
+def generate_complete_response(treated_prompt, max_length=128):
+    """
+    Generate a succinct response with a limit on the total length.
+    """
+    input_ids = tokenizer(treated_prompt, return_tensors="pt").to("cuda")
+    
+    # Generate the response with a moderate limit
+    outputs = model.generate(**input_ids, max_new_tokens=max_length, do_sample=False)
+    generated_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
+    
+    return generated_text
 
 def answer_question(req):
-    question = req
-    max_new_tokens = 64
- 
+    question = req.question
     context = load_pdf_context(PDF_FILEPATH)
-    treated_prompt = prompt_treatment(question, context, max_new_tokens)
+    
+    rospy.logwarn("----------------------------")
+    rospy.logwarn(f"Asked Question: {question}")
+    rospy.logwarn("----------------------------")
+    
+    treated_prompt = prompt_treatment(question, context)
     
     start_time = time.time()
     
-    input_ids = tokenizer(treated_prompt, return_tensors="pt").to("cuda")
-
-    outputs = model.generate(**input_ids, max_new_tokens=max_new_tokens)
+    # Generate the response
+    generated_text = generate_complete_response(treated_prompt, max_length=64)  # Limit set to 64 tokens
+    
     end_time = time.time()
     inference_time = end_time - start_time
-    print(f'Tempo de inferência: {inference_time} segundos')
+    rospy.logwarn(f'Tempo de inferência: {inference_time} segundos')
+    rospy.logwarn("---------------------")
     
-    generated_text = tokenizer.decode(outputs[0])
+    # Extract the first question-answer pair and stop after a complete sentence
+    p_question, answer = extract_first_qa_pair(generated_text)
     
-    # Extract the first question-answer pair
-    qa_pair = generated_text
+    rospy.logwarn(f"Prompted Question: {p_question}")
+    rospy.logwarn("---------------------")
+    rospy.logwarn(f"Answer: {answer}")
+    rospy.logwarn("---------------------")
     
-    return qa_pair
-
-    ''' #rospy.logwarn("----------------------------")
-    #rospy.logwarn(f"Question: {question}")
-
-    # Generate the input text for the model
-    context = load_pdf_context(PDF_FILEPATH)
-    input_text = f"Context: {context}\nQuestion: {question}\nAnswer:"
-    
-    # Use the gemma model to generate a response
-    input_ids = tokenizer(input_text, return_tensors="pt")
-    start_time = time.time()
-    outputs = model.generate(**input_ids, max_new_tokens=256)
-    end_time = time.time()
-    inference_time = end_time - start_time
-    print(f'Tempo de inferência: {inference_time} segundos')
-    answer = tokenizer.decode(outputs[0], skip_special_tokens=True)
-    
-    #rospy.logwarn(f"Answer: {answer}")
-    #rospy.logwarn("---------------------")
-
-   # response = ButiaQuizCommResponse()
-    #response.answer = answer
-    return answer'''
+    response = ButiaQuizCommResponse()
+    response.answer = answer
+    return response
 
 if __name__ == "__main__":
-    prompt = input("Prompt: ")
-    answer = answer_question(prompt)
-    print(answer)
-    '''rospy.init_node("butia_quiz_node", anonymous=False)
+    rospy.init_node("butia_quiz_node", anonymous=False)
 
     # Set up the ROS service
     butia_quiz_service_param = rospy.get_param("servers/butia_quiz/service")
     rospy.Service(butia_quiz_service_param, ButiaQuizComm, answer_question)
 
-    rospy.spin()'''
+    rospy.spin()
