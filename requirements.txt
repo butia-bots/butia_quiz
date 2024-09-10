@@ -3,11 +3,9 @@ wolframalpha
 levenshtein
 nltk
 langchain
-openai
-chromadb==0.3.29
 pypdf
 replicate
 huggingface-hub
 clarifai
 jq
-PyPDF2
+langchain-community
