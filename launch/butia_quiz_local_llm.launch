@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Define output argument -->
+    <arg name="output" default="screen"/>
+
+    <!-- Load the config file -->
+    <rosparam file="$(find butia_quiz)/config/ros.yaml" command="load"/>
+     <rosparam file="$(find butia_quiz)/config/ollama.yaml" command="load"/>
+
+    <!-- Init the butia quiz node -->
+    <node name="butia_quiz_local_llm_node" pkg="butia_quiz" type="butia_quiz_local_llm_node.py" output="$(arg output)"/>
+</launch>

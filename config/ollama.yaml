@@ -1,0 +1,8 @@
+ollama:
+  base_url: "http://localhost:11434/"
+  model: "gemma2:2b-instruct-q5_1"
+  temperature: 0.4
+  keep_alive: 600
+
+context:
+  path: "butia_quiz\\resources\\2024"
