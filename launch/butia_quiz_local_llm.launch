@@ -1,10 +1,9 @@
 <?xml version="1.0"?>
 <launch>
-    <arg name="machine" default="localhost"/>
+    <arg name="machine" default="jetson"/>
     <arg name="butia_quiz_local_llm_machine" default="$(arg machine)"/>
     <arg name="use_machine" default="true"/>
     
-    <machine name="localhost" address="localhost" if="$(arg use_machine)"/>
     <!-- Define output argument -->
     <arg name="output" default="screen"/>
 

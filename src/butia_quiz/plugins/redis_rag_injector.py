@@ -11,6 +11,7 @@ import os
 REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6380")
 class RedisRAGInjector():
     def __init__(self):
+        rospy.loginfo('Initializing RedisRAGInjector')
         self.embeddings = OllamaEmbeddings(model="nomic-embed-text")
         self.vector_store = Redis(
             embedding=self.embeddings, 

@@ -31,17 +31,20 @@ PDF_FILEPATH = os.path.join(PACKAGE_DIR, "resources", "2024")
 
 class ButiaQuizLocalLLM(RedisRAGRetriever):
     def __init__(self, ollama_configs) -> None:
-        super().__init__(k=10)
+        super().__init__(k=12)
         self.llm = Ollama(**ollama_configs)
         self.prompt = ChatPromptTemplate.from_template(TEMPLATE)
         if not rospy.get_param("context/path"):
+            rospy.loginfo("No context path provided. Using default context.")
             self.context_path = PDF_FILEPATH
         else:
+            rospy.loginfo("Context path provided. Using context from the path.")
             self.context_path = rospy.get_param("context/path")
     
     def run(self):
         rospy.loginfo("ButiaQuizLocalLLM node started")
-        self.on_load_pdf(self.context_path)
+        if self.on_load_pdf(self.context_path):
+            print("PDF loaded successfully")
         '''if not self._injectContext():
             rospy.logerr("Error injecting context into Redis.")'''
         # Set up the ROS service
@@ -119,13 +122,21 @@ class ButiaQuizLocalLLM(RedisRAGRetriever):
     
     def _answerQuestion(self, req):
         question = req.question
+        print("Question: ", question)
         rag_chain = (
             {"context": self.retriever,  "query": RunnablePassthrough()}
             | self.prompt
             | self.llm
             | StrOutputParser()
         )
-        answer = rag_chain.invoke(question)
+        try:
+            answer = rag_chain.invoke(question)
+            answer = answer.strip()  
+        except Exception as e:
+            rospy.logerr(f"Error invoking the LLM: {e}")
+            answer = "I don't know"
+        
+        print("Answer: ", answer)
 
         response = ButiaQuizCommResponse()
         response.answer = answer
