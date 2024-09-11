@@ -1,14 +1,20 @@
 #!/usr/bin/env python3
 import rospy
+import rospkg
+import os
 from butia_quiz.srv import ButiaQuizComm, ButiaQuizCommResponse
-from fbot_db.srv import RedisRagRetrieverSrv, RedisRagInjectSrv
+from fbot_db.srv import RedisRagInjectSrv, RedisRagRetrieverSrv
+from butia_quiz.plugins import RedisRAGRetriever
 
 from langchain_community.llms import Ollama
 from langchain.schema.runnable import RunnablePassthrough
+from langchain_community.document_loaders import PyPDFDirectoryLoader
+from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.schema.output_parser import StrOutputParser
 from langchain.prompts import ChatPromptTemplate
-from langchain.chains import RetrievalQA, LLMChain
 from langchain.docstore.document import Document
+import requests
+import requests
 
 TEMPLATE = """
             Use the following context and only the context to answer the query at the end. 
@@ -23,8 +29,9 @@ TEMPLATE = """
 PACKAGE_DIR = rospkg.RosPack().get_path("butia_quiz")
 PDF_FILEPATH = os.path.join(PACKAGE_DIR, "resources", "2024")
 
-class ButiaQuizLocalLLM:
+class ButiaQuizLocalLLM(RedisRAGRetriever):
     def __init__(self, ollama_configs) -> None:
+        super().__init__(k=10)
         self.llm = Ollama(**ollama_configs)
         self.prompt = ChatPromptTemplate.from_template(TEMPLATE)
         if not rospy.get_param("context/path"):
@@ -34,16 +41,17 @@ class ButiaQuizLocalLLM:
     
     def run(self):
         rospy.loginfo("ButiaQuizLocalLLM node started")
-        
-        if not self._injectContext():
-            rospy.logerr("Error injecting context into Redis.")
+        self.on_load_pdf(self.context_path)
+        '''if not self._injectContext():
+            rospy.logerr("Error injecting context into Redis.")'''
         # Set up the ROS service
-        butia_quiz_service_param = rospy.get_param("servers/butia_quiz/service")
+        butia_quiz_service_param = rospy.get_param("servers/butia_quiz/service", "/butia_quiz/bq/question")
         rospy.Service(butia_quiz_service_param, ButiaQuizComm, self._answerQuestion)
         
         rospy.spin()
     
-    def _separatePdfContext(text):
+    def _separatePdfContext(self, text):
+        print(text)
         page_context = text[0].page_content
         
         # Split the text to get only the "Questions - context" part
@@ -88,27 +96,37 @@ class ButiaQuizLocalLLM:
         try:
             redis_retriever_service = rospy.ServiceProxy('redis_rag_retriever_srv', RedisRagRetrieverSrv)
             retrieved_context = redis_retriever_service(question, 12)  # '12' is the value for 'k'
-            context = " ".join([doc.page_content for doc in retrieved_context.documents])
+            
+            # Convert metadata into dictionaries if they are not already
+            documents = []
+            for page, meta in zip(retrieved_context.page_contents, retrieved_context.metadata):
+                # Check if meta is already a dictionary; if it's a string, convert it
+                if isinstance(meta, str):
+                    try:
+                        meta_dict = eval(meta)  # Convert string to dictionary (use json.loads for safer conversion)
+                    except:
+                        meta_dict = {}  # Fallback to empty dict if conversion fails
+                else:
+                    meta_dict = meta  # Already a dictionary
+
+                # Construct Document object
+                documents.append(Document(page_content=page, metadata=meta_dict))
+                
         except rospy.ServiceException as e:
             rospy.logerr(f"Service call failed: {e}")
-            context = self._getAllContext()
-        return context
+            documents = self._getAllContext()
+        return documents
     
     def _answerQuestion(self, req):
         question = req.question
-        
-        context = self._retrieveContext(question)
-            
-        # Create the RAG chain
         rag_chain = (
-            {"context": context, "query": RunnablePassthrough()}
+            {"context": self.retriever,  "query": RunnablePassthrough()}
             | self.prompt
             | self.llm
             | StrOutputParser()
         )
-        
         answer = rag_chain.invoke(question)
-        
+
         response = ButiaQuizCommResponse()
         response.answer = answer
         return response
