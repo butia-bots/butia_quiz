@@ -52,7 +52,7 @@ class RedisRAGInjector():
         loader = PyPDFDirectoryLoader(pdf_path_new)
         docs = loader.load()
         docs = self._separate_pdf_context(docs)
-        text_splitter = RecursiveCharacterTextSplitter(chunk_size=300, chunk_overlap=50)
+        text_splitter = RecursiveCharacterTextSplitter(chunk_size=250, chunk_overlap=50)
         chunks = text_splitter.split_documents(docs)
         
         # Extract text content from each chunk
