@@ -6,6 +6,6 @@ servers:
 publishers:
   
     butia_quiz_question:
-      topic: "/butia_quiz/bqq/question"
+      topic: "/butia_quiz/bq/question"
     butia_quiz_answer:
-      topic: "/butia_quiz/bqa/answer"
+      topic: "/butia_quiz/bq/answer"

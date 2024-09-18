@@ -43,8 +43,8 @@ class ButiaQuizLocalLLM(RedisRAGRetriever):
         self._initRosComm()
     
     def _initRosComm(self):
-        self.question_publisher_param =  rospy.get_param("~publishers/butia_quiz_question/topic","/butia_quiz/bqq/question")
-        self.answer_publisher_param =  rospy.get_param("~publishers/butia_quiz_answer/topic","/butia_quiz/bqa/answer")
+        self.question_publisher_param =  rospy.get_param("~publishers/butia_quiz_question/topic","/butia_quiz/bq/question")
+        self.answer_publisher_param =  rospy.get_param("~publishers/butia_quiz_answer/topic","/butia_quiz/bq/answer")
         
         self.answer_publisher = rospy.Publisher(self.answer_publisher_param, Char, queue_size=1)
         self.question_publisher = rospy.Publisher(self.question_publisher_param, Char, queue_size=1)
@@ -128,10 +128,14 @@ class ButiaQuizLocalLLM(RedisRAGRetriever):
             documents = self._getAllContext()
         return documents
     
+    def publishQuestionAnswer(self):
+        while not rospy.is_shutdown():
+            self.question_publisher.publish(Char(self.question))
+            self.answer_publisher.publish(Char(self.answer))
+    
     def _answerQuestion(self, req):
-        question = req.question
-        print("Question: ", question)
-        self.question_publisher.publish(Char(question))
+        self.question = req.question
+        print("Question: ", self.question)
         
         rag_chain = (
             {"context": self.retriever,  "query": RunnablePassthrough()}
@@ -140,18 +144,17 @@ class ButiaQuizLocalLLM(RedisRAGRetriever):
             | StrOutputParser()
         )
         try:
-            answer = rag_chain.invoke(question)
-            answer = answer.strip()  
+            answer = rag_chain.invoke(self.uestion)
+            self.answer = answer.strip()  
         except Exception as e:
             rospy.logerr(f"Error invoking the LLM: {e}")
-            answer = "I don't know"
+            self.answer = "I don't know"
         
-        print("Answer: ", answer)
+        print("Answer: ", self.answer)
         
-        self.answer_publisher.publish(Char(answer))
         
         response = ButiaQuizCommResponse()
-        response.answer = answer
+        response.answer = self.answer
         return response
 
 
@@ -163,3 +166,4 @@ if __name__ == "__main__":
     ollama_configs = rospy.get_param("ollama")
     plugin = ButiaQuizLocalLLM(ollama_configs)
     plugin.run()
+    plugin.publishQuestionAnswer()
