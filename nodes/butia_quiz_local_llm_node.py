@@ -13,8 +13,8 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.schema.output_parser import StrOutputParser
 from langchain.prompts import ChatPromptTemplate
 from langchain.docstore.document import Document
-import requests
-import requests
+
+from std_msgs.msg import Char
 
 TEMPLATE = """
             Use the following context and only the context to answer the query at the end. 
@@ -40,6 +40,14 @@ class ButiaQuizLocalLLM(RedisRAGRetriever):
         else:
             rospy.loginfo("Context path provided. Using context from the path.")
             self.context_path = rospy.get_param("context/path")
+        self._initRosComm()
+    
+    def _initRosComm(self):
+        self.question_publisher_param =  rospy.get_param("~publishers/butia_quiz_question/topic","/butia_quiz/bqq/question")
+        self.answer_publisher_param =  rospy.get_param("~publishers/butia_quiz_answer/topic","/butia_quiz/bqa/answer")
+        
+        self.answer_publisher = rospy.Publisher(self.answer_publisher_param, Char, queue_size=1)
+        self.question_publisher = rospy.Publisher(self.question_publisher_param, Char, queue_size=1)
     
     def run(self):
         rospy.loginfo("ButiaQuizLocalLLM node started")
@@ -123,6 +131,8 @@ class ButiaQuizLocalLLM(RedisRAGRetriever):
     def _answerQuestion(self, req):
         question = req.question
         print("Question: ", question)
+        self.question_publisher.publish(Char(question))
+        
         rag_chain = (
             {"context": self.retriever,  "query": RunnablePassthrough()}
             | self.prompt
@@ -137,7 +147,9 @@ class ButiaQuizLocalLLM(RedisRAGRetriever):
             answer = "I don't know"
         
         print("Answer: ", answer)
-
+        
+        self.answer_publisher.publish(Char(answer))
+        
         response = ButiaQuizCommResponse()
         response.answer = answer
         return response
