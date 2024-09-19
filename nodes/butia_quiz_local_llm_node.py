@@ -14,7 +14,6 @@ from langchain.schema.output_parser import StrOutputParser
 from langchain.prompts import ChatPromptTemplate
 from langchain.docstore.document import Document
 
-from std_msgs.msg import Char
 
 TEMPLATE = """
             Use the following context and only the context to answer the query at the end. 
@@ -40,14 +39,6 @@ class ButiaQuizLocalLLM(RedisRAGRetriever):
         else:
             rospy.loginfo("Context path provided. Using context from the path.")
             self.context_path = rospy.get_param("context/path")
-        self._initRosComm()
-    
-    def _initRosComm(self):
-        self.question_publisher_param =  rospy.get_param("~publishers/butia_quiz_question/topic","/butia_quiz/bq/question")
-        self.answer_publisher_param =  rospy.get_param("~publishers/butia_quiz_answer/topic","/butia_quiz/bq/answer")
-        
-        self.answer_publisher = rospy.Publisher(self.answer_publisher_param, Char, queue_size=1)
-        self.question_publisher = rospy.Publisher(self.question_publisher_param, Char, queue_size=1)
     
     def run(self):
         rospy.loginfo("ButiaQuizLocalLLM node started")
@@ -128,10 +119,6 @@ class ButiaQuizLocalLLM(RedisRAGRetriever):
             documents = self._getAllContext()
         return documents
     
-    def publishQuestionAnswer(self):
-        while not rospy.is_shutdown():
-            self.question_publisher.publish(Char(self.question))
-            self.answer_publisher.publish(Char(self.answer))
     
     def _answerQuestion(self, req):
         self.question = req.question
@@ -144,7 +131,7 @@ class ButiaQuizLocalLLM(RedisRAGRetriever):
             | StrOutputParser()
         )
         try:
-            answer = rag_chain.invoke(self.uestion)
+            answer = rag_chain.invoke(self.question)
             self.answer = answer.strip()  
         except Exception as e:
             rospy.logerr(f"Error invoking the LLM: {e}")
@@ -166,4 +153,3 @@ if __name__ == "__main__":
     ollama_configs = rospy.get_param("ollama")
     plugin = ButiaQuizLocalLLM(ollama_configs)
     plugin.run()
-    plugin.publishQuestionAnswer()

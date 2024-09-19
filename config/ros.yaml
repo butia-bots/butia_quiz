@@ -2,10 +2,3 @@ servers:
 
   butia_quiz:
     service: "/butia_quiz/bq/question"
-
-publishers:
-  
-    butia_quiz_question:
-      topic: "/butia_quiz/bq/question"
-    butia_quiz_answer:
-      topic: "/butia_quiz/bq/answer"
