@@ -2,6 +2,7 @@
 import rospy
 import rospkg
 import os
+from termcolor import colored
 from butia_quiz.srv import ButiaQuizComm, ButiaQuizCommResponse
 from fbot_db.srv import RedisRagInjectSrv, RedisRagRetrieverSrv
 from butia_quiz.plugins import RedisRAGRetriever
@@ -29,7 +30,14 @@ PACKAGE_DIR = rospkg.RosPack().get_path("butia_quiz")
 PDF_FILEPATH = os.path.join(PACKAGE_DIR, "resources", "2024")
 
 class ButiaQuizLocalLLM(RedisRAGRetriever):
+    """Class to handle the Butia Quiz Local LLM node."""
+
     def __init__(self, ollama_configs) -> None:
+        """Initialize the ButiaQuizLocalLLM node.
+
+        Args:
+            ollama_configs: Configuration parameters for the Ollama LLM.
+        """
         super().__init__(k=12)
         self.llm = Ollama(**ollama_configs)
         self.prompt = ChatPromptTemplate.from_template(TEMPLATE)
@@ -41,6 +49,7 @@ class ButiaQuizLocalLLM(RedisRAGRetriever):
             self.context_path = rospy.get_param("context/path")
     
     def run(self):
+        """Run the ButiaQuizLocalLLM node."""
         rospy.loginfo("ButiaQuizLocalLLM node started")
         if self.on_load_pdf(self.context_path):
             print("PDF loaded successfully")
@@ -53,7 +62,14 @@ class ButiaQuizLocalLLM(RedisRAGRetriever):
         rospy.spin()
     
     def _separatePdfContext(self, text):
-        print(text)
+        """Separate the context from the PDF text.
+
+        Args:
+            text: The text extracted from the PDF.
+
+        Returns:
+            The separated context text.
+        """
         page_context = text[0].page_content
         
         # Split the text to get only the "Questions - context" part
@@ -72,6 +88,11 @@ class ButiaQuizLocalLLM(RedisRAGRetriever):
         return context_text
     
     def _getAllContext(self):
+        """Get all context from the PDF files.
+
+        Returns:
+            A list of text chunks extracted from the PDF files.
+        """
         loader = PyPDFDirectoryLoader(self.context_path)
         docs = loader.load()
         docs = self._separatePdfContext(docs)
@@ -83,6 +104,11 @@ class ButiaQuizLocalLLM(RedisRAGRetriever):
         return texts
     
     def _injectContext(self):
+        """Inject context into the Redis RAG service.
+
+        Returns:
+            A boolean indicating whether the context injection was successful.
+        """
         rospy.wait_for_service('redis_rag_inject_srv')
         try:
             redis_inject_service = rospy.ServiceProxy('redis_rag_inject_srv', RedisRagInjectSrv)
@@ -93,6 +119,14 @@ class ButiaQuizLocalLLM(RedisRAGRetriever):
         return response
         
     def _retrieveContext(self, question):
+        """Retrieve context relevant to the given question.
+
+        Args:
+            question: The question for which context is to be retrieved.
+
+        Returns:
+            A list of Document objects containing the relevant context.
+        """
         # Call RedisRAGRetriever service to get relevant context
         rospy.wait_for_service('redis_rag_retriever_srv')
         try:
@@ -119,10 +153,17 @@ class ButiaQuizLocalLLM(RedisRAGRetriever):
             documents = self._getAllContext()
         return documents
     
-    
     def _answerQuestion(self, req):
+        """Answer the given question using the LLM.
+
+        Args:
+            req: The request containing the question.
+
+        Returns:
+            The response containing the answer.
+        """
         self.question = req.question
-        print("Question: ", self.question)
+        print(colored(f"Question: {self.question}", "green"))
         
         rag_chain = (
             {"context": self.retriever,  "query": RunnablePassthrough()}
@@ -137,19 +178,20 @@ class ButiaQuizLocalLLM(RedisRAGRetriever):
             rospy.logerr(f"Error invoking the LLM: {e}")
             self.answer = "I don't know"
         
-        print("Answer: ", self.answer)
-        
+        print(colored(f"Question: {answer}", "blue"))
         
         response = ButiaQuizCommResponse()
         response.answer = self.answer
         return response
 
 
-
-
 if __name__ == "__main__":
+    # Initialize the ROS node
     rospy.init_node("butia_quiz_local_llm_node", anonymous=False)
     
+    # Get the Ollama configurations from ROS parameters
     ollama_configs = rospy.get_param("ollama")
+    
+    # Create an instance of the ButiaQuizLocalLLM class and run it
     plugin = ButiaQuizLocalLLM(ollama_configs)
     plugin.run()
