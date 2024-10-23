@@ -4,7 +4,7 @@ import rospkg
 import os
 from termcolor import colored
 from butia_quiz.srv import ButiaQuizComm, ButiaQuizCommResponse
-from fbot_db.srv import RedisRagInjectSrv, RedisRagRetrieverSrv
+#from fbot_db.srv import RedisRagInjectSrv, RedisRagRetrieverSrv
 from butia_quiz.plugins import RedisRAGRetriever
 
 from langchain_community.llms import Ollama
