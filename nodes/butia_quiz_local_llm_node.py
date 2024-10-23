@@ -41,7 +41,7 @@ class ButiaQuizLocalLLM(RedisRAGRetriever):
         super().__init__(k=12)
         self.llm = Ollama(**ollama_configs)
         self.prompt = ChatPromptTemplate.from_template(TEMPLATE)
-        if not rospy.get_param("context/path"):
+        if not rospy.get_param("context/path", "butia_quiz\\resources\\2024"):
             rospy.loginfo("No context path provided. Using default context.")
             self.context_path = PDF_FILEPATH
         else:
