@@ -189,8 +189,15 @@ if __name__ == "__main__":
     # Initialize the ROS node
     rospy.init_node("butia_quiz_local_llm_node", anonymous=False)
     
+    ollama_default_configs = {
+        'base_url': "http://localhost:11434",
+        'model': "gemma2:2b-instruct-q5_1",
+        'temperature': 0.4,
+        'keep_alive': 600,
+    }
+    
     # Get the Ollama configurations from ROS parameters
-    ollama_configs = rospy.get_param("ollama")
+    ollama_configs = rospy.get_param("~ollama/", ollama_default_configs)
     
     # Create an instance of the ButiaQuizLocalLLM class and run it
     plugin = ButiaQuizLocalLLM(ollama_configs)
