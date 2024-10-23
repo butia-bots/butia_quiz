@@ -46,7 +46,7 @@ class ButiaQuizLocalLLM(RedisRAGRetriever):
             self.context_path = PDF_FILEPATH
         else:
             rospy.loginfo("Context path provided. Using context from the path.")
-            self.context_path = rospy.get_param("context/path")
+            self.context_path = rospy.get_param("context/path", "butia_quiz\\resources\\2024")
     
     def run(self):
         """Run the ButiaQuizLocalLLM node."""
