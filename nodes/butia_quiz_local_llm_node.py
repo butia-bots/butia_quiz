@@ -19,8 +19,7 @@ from langchain.docstore.document import Document
 TEMPLATE = """
             Use the following context and only the context to answer the query at the end. 
             If you don't know the answer, just say that you don't know, don't try to make up an answer. 
-            Use one sentence maximum and keep the answer as concise as possible, but try to include the question context on the answer. 
-            Dont leave the sentence unfinished, always finish the sentence.
+            Use one sentence maximum and keep the answer as concise as possible, but try to include the question on the answer. 
             {context}
             Question: {query}
             Answer: 
