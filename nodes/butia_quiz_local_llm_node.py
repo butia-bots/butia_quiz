@@ -190,7 +190,7 @@ if __name__ == "__main__":
     
     ollama_default_configs = {
         'base_url': "http://localhost:11434",
-        'model': "gemma2:2b-instruct-q5_1",
+        'model': "llama3.2:3b-instruct-q5_1",
         'temperature': 0.4,
         'keep_alive': 600,
     }
