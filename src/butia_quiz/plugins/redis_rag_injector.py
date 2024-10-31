@@ -8,6 +8,8 @@ import rospy
 import rospkg
 import os
 
+from butia_quiz.plugins import LLMContextManager
+
 REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6380")
 class RedisRAGInjector():
     def __init__(self):
@@ -42,7 +44,7 @@ class RedisRAGInjector():
         self.vector_store.add_documents(documents=documents)
         rospy.loginfo('Data pushed to Redis')
     
-    def on_load_pdf(self, req):
+    def on_load_pdf(self, req, summarize = False):
         pdf_path = req
         pdf_path = pdf_path.split("\\")
         pkg_dir = rospkg.RosPack().get_path(pdf_path[0])
@@ -52,11 +54,14 @@ class RedisRAGInjector():
         loader = PyPDFDirectoryLoader(pdf_path_new)
         docs = loader.load()
         docs = self._separate_pdf_context(docs)
-        text_splitter = RecursiveCharacterTextSplitter(chunk_size=250, chunk_overlap=50)
+        text_splitter = RecursiveCharacterTextSplitter(chunk_size=2024, chunk_overlap=0)
         chunks = text_splitter.split_documents(docs)
         
         # Extract text content from each chunk
         texts = [chunk.page_content for chunk in chunks]
+        if summarize:
+            summerizer = LLMContextManager()
+            texts = summerizer(docs)
         self._injectToRedis(texts)
 
         return True
