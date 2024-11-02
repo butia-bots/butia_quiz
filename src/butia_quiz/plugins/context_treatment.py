@@ -51,7 +51,6 @@ class LLMContextManager():
         return documents
     
     def __call__(self, texts):
-        documents = [Document(page_content=text) for text in texts]
-        result = self.chain.invoke({"context": documents})
+        result = self.chain.invoke({"context": texts})
         return self.split_text_into_documents(result)
     
