@@ -37,7 +37,7 @@ class ButiaQuizLocalLLM(RedisRAGRetriever):
         Args:
             ollama_configs: Configuration parameters for the Ollama LLM.
         """
-        super().__init__(k=12)
+        super().__init__(k=6)
         self.llm = Ollama(**ollama_configs)
         self.prompt = ChatPromptTemplate.from_template(TEMPLATE)
         if not rospy.get_param("context/path", "butia_quiz\\resources\\2024"):
@@ -50,7 +50,7 @@ class ButiaQuizLocalLLM(RedisRAGRetriever):
     def run(self):
         """Run the ButiaQuizLocalLLM node."""
         rospy.loginfo("ButiaQuizLocalLLM node started")
-        if self.on_load_pdf(self.context_path, summarize = True):
+        if self.on_load_pdf(self.context_path, summarize = False):
             print("PDF loaded successfully")
         '''if not self._injectContext():
             rospy.logerr("Error injecting context into Redis.")'''
