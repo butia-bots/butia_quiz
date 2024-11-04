@@ -55,11 +55,12 @@ class RedisRAGInjector():
         loader = PyPDFDirectoryLoader(pdf_path_new)
         docs = loader.load()
         docs = self._separate_pdf_context(docs)
-        text_splitter = RecursiveCharacterTextSplitter(chunk_size=2024, chunk_overlap=0)
+        text_splitter = RecursiveCharacterTextSplitter(chunk_size=25000, chunk_overlap=50)
         chunks = text_splitter.split_documents(docs)
         
         # Extract text content from each chunk
         texts = [chunk.page_content for chunk in chunks]
+        print(texts)
         if summarize:
             summerizer = LLMContextManager()
             texts_sum = summerizer(chunks)

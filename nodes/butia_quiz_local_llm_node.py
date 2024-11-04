@@ -37,7 +37,7 @@ class ButiaQuizLocalLLM(RedisRAGRetriever):
         Args:
             ollama_configs: Configuration parameters for the Ollama LLM.
         """
-        super().__init__(k=6)
+        super().__init__(k=12)
         self.llm = Ollama(**ollama_configs)
         self.prompt = ChatPromptTemplate.from_template(TEMPLATE)
         if not rospy.get_param("context/path", "butia_quiz\\resources\\2024"):
