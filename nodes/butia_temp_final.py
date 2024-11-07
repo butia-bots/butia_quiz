@@ -24,7 +24,7 @@ class ButiaFinalLocalLLM():
             [
                 (
                     "system",
-                    "Answer the question",
+                    "Help the human with his request. If your answer has instructions, please guide the user through them.",
                 ),
                 ("human", "{query}"),
             ]
@@ -63,7 +63,7 @@ class ButiaFinalLocalLLM():
             rospy.logerr(f"Error invoking the LLM: {e}")
             self.answer = "I don't know"
         
-        print(colored(f"Question: {answer}", "blue"))
+        print(colored(f"Answer: {self.answer}", "blue"))
         
         response = ButiaQuizCommResponse()
         response.answer = self.answer
