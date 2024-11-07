@@ -50,7 +50,7 @@ class ButiaQuizLocalLLM(RedisRAGRetriever):
     def run(self):
         """Run the ButiaQuizLocalLLM node."""
         rospy.loginfo("ButiaQuizLocalLLM node started")
-        if self.on_load_pdf(self.context_path):
+        if self.on_load_pdf(self.context_path, summarize = False):
             print("PDF loaded successfully")
         '''if not self._injectContext():
             rospy.logerr("Error injecting context into Redis.")'''
@@ -191,7 +191,7 @@ if __name__ == "__main__":
     ollama_default_configs = {
         'base_url': "http://localhost:11434",
         'model': "llama3.2:3b-instruct-q5_1",
-        'temperature': 0.4,
+        'temperature': 0,
         'keep_alive': 600,
     }
     
