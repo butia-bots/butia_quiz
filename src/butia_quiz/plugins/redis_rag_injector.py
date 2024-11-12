@@ -16,7 +16,7 @@ class RedisRAGInjector():
         self.embeddings = OllamaEmbeddings(model="nomic-embed-text")
         self.vector_store = Redis(
             embedding=self.embeddings, 
-            index_name="quiz-context",
+            index_name="quiz-context-cbr",
             redis_url= REDIS_URL
             )
     

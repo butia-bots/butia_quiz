@@ -26,7 +26,7 @@ TEMPLATE = """
         """
 
 PACKAGE_DIR = rospkg.RosPack().get_path("butia_quiz")
-PDF_FILEPATH = os.path.join(PACKAGE_DIR, "resources", "2024-cbr")
+PDF_FILEPATH = os.path.join(PACKAGE_DIR, "resources", "2024")
 
 class ButiaQuizLocalLLM(RedisRAGRetriever):
     """Class to handle the Butia Quiz Local LLM node."""
@@ -40,12 +40,12 @@ class ButiaQuizLocalLLM(RedisRAGRetriever):
         super().__init__(k=12)
         self.llm = Ollama(**ollama_configs)
         self.prompt = ChatPromptTemplate.from_template(TEMPLATE)
-        if not rospy.get_param("context/path", "butia_quiz\\resources\\2024-cbr"):
+        if not rospy.get_param("context/path", "butia_quiz\\resources\\2024"):
             rospy.loginfo("No context path provided. Using default context.")
             self.context_path = PDF_FILEPATH
         else:
             rospy.loginfo("Context path provided. Using context from the path.")
-            self.context_path = rospy.get_param("context/path", "butia_quiz\\resources\\2024-cbr")
+            self.context_path = rospy.get_param("context/path", "butia_quiz\\resources\\2024")
     
     def run(self):
         """Run the ButiaQuizLocalLLM node."""
