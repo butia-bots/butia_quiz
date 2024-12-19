@@ -2,6 +2,7 @@
 import rospy
 import rospkg
 import os
+import ast
 from termcolor import colored
 from butia_quiz.srv import ButiaQuizComm, ButiaQuizCommResponse
 #from fbot_db.srv import RedisRagInjectSrv, RedisRagRetrieverSrv
@@ -138,7 +139,7 @@ class ButiaQuizLocalLLM(RedisRAGRetriever):
                 # Check if meta is already a dictionary; if it's a string, convert it
                 if isinstance(meta, str):
                     try:
-                        meta_dict = eval(meta)  # Convert string to dictionary (use json.loads for safer conversion)
+                        meta_dict = ast.literal_eval(meta)  # Convert string to dictionary (use json.loads for safer conversion)
                     except:
                         meta_dict = {}  # Fallback to empty dict if conversion fails
                 else:
